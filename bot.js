@@ -1298,7 +1298,7 @@ client.on('message', message => {
 });
 client.on("guildMemberRemove", member => {
   let guild = member.guild;
-  guild.defaultChannel.sendMessage("", {embed: {
+  guild.defaultChannel.sendmessage("", {embed: {
   color: 808080,
   author: {
     name: member.user.username,
