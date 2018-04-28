@@ -48,14 +48,7 @@ if (message.content.startsWith((prefix) + 'report')) {
         }
 });
 
-client.on('message', message => {
-    if (message.content === '-help')
-   var embed = new Discord.RichEmbed()
-        .setTitle('تم ارسال جميع الاوامر على الخاص ,, :e_mail: ')
-        .setColor('RED')
-       message.channel.sendEmbed(embed)
 
-});
 
 client.on('guildMemberAdd', member => {
         var embed = new Discord.RichEmbed()
