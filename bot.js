@@ -66,11 +66,6 @@ client.on('guildMemberAdd', (member) => {
 member.addRole(member.guild.roles.find('name', 'MEMBERS'));
 });
 
-
-client.on('guildMemberAdd', (member) => {
-member.addRole(member.guild.roles.find('name', 'VIP'));
-});
-
 client.on('guildMemberAdd', (member) => {
 member.addRole(member.guild.roles.find('name', 'USERS◇BOT'));
 });
@@ -132,19 +127,78 @@ const zead = [
 });
 
 client.on('message', message => {
+    if (message.content.startsWith("-link")) {
+        
+  message.channel.createInvite({
+        thing: true,
+        maxUses: 100,
+        maxAge: 86400
+    }).then(invite =>  
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+				.setAuthor(message.guild.name, message.guild.iconURL)
+        .setDescription(`
+**
+---------------------
+-[${message.guild.name}]  هذا هو رابط سيرفر
+---------------------
+-هذا الرابط صالح ل 100 مستخدم فقط
+---------------------
+-هذا الرابط صالح لمده 24 ساعه فقط
+---------------------
+**`)
+      message.author.sendEmbed(Embed11)
+    }
+});
+
+client.on("message", message => {
+    if (message.content === "-help") {
+        const embed = new Discord.RichEmbed()
+            .setColor("RANDOM")
+            .setThumbnail(message.author.avatarURL)
+            .setDescription(`
+  =========================
+   للترحيب و المغادره 
+   فقط انشئ شات بأسم
+   welcome
+   و سوف يرحب البوت ب الجدد و يودع الذين خرجو من سيرفرك
+   =========================
+   لأضافه الرتبه التلقائيه
+   فقط دع رتبه الأشخاص العادين بهذا الأسم
+   MEMBER
+   و اي احد يدخل السيرفر جديد البوت يعطيه رتبه 
+   MEMBER
+   تلقائياًً 
+   =========================
+   `)
+
+
+        message.author.sendEmbed(embed)
+
+    }
+});
+
+client.on('message', message => {
 	var prefix ="-";
 if (message.content.startsWith(prefix + 'help')) {
   var embed = new Discord.RichEmbed() 
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
--سرعه اتصال ممتازه
--سهل الاستخدام 
--صيانه كل يوم
--مجاني بل كامل 
--منع انفايت السيرفرات الا الادمنس 
--البوت 24 ساعة
--اوامر جديدة وخصائص جديدة ...قريبا
+:comet: -سرعه اتصال ممتازه
+:heavy_check_mark: -سهل الاستخدام 
+:gear: -صيانه كل يوم
+:dollar: -مجاني بل كامل 
+:octagonal_sign: -منع انفايت السيرفرات الا الادمنس 
+:timer: -البوت 24 ساعة
+:new: -اوامر جديدة وخصائص جديدة ...قريبا
+
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 
 💎『اوامر عامة』💎
@@ -170,6 +224,8 @@ if (message.content.startsWith(prefix + 'help')) {
 💎-id  『لي عرض معلومات عنك 』
 
 💎-bans  『لي عرض عدد الاشخاص المبندة』
+
+💎-link  『 لي انشاء رابط لسيرفر دسكورد 』
 
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 
