@@ -1274,16 +1274,7 @@ client.on('message', message => {
             .setColor(0x23b2d6)
         message.channel.sendEmbed(say);
         message.delete();
-    };
-
-if (command == "tag") {
-    let say = new Discord.RichEmbed()
-    .setTitle('Text emboss :')
-   message.reply(`\n ${zalgo(args.join(' '))}`);
-  }
-
-
-
+    }
 });
 
 
@@ -1295,11 +1286,9 @@ if (command == "tag") {
   .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/3WYTPsq**")
      
      
-     
   message.channel.sendEmbed(embed);
     }
 });
-
 client.on('message', omar => {
 var prefix = "-";
 if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
@@ -1320,11 +1309,8 @@ m.delete();
 omar.reply("`تم حذف جميع الرتب بنجاح`")
 }// omar jedol / Codes
 });
-
-
 client.on("message", message => {
     var prefix = "-";
- 
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "clear")) {
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(':x:  | **you dont have permissions to delete messages**');
@@ -1341,10 +1327,7 @@ client.on("message", message => {
         }
       }}).then(msg => {msg.delete(3000)});
                           }
-
-     
 });
-
 client.on('message', message =>{
     if(message.content == "-roles"){
         var roles = '',
@@ -1466,5 +1449,3 @@ client.on("message", (message) => {
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
-
-
