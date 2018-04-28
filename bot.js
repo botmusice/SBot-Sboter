@@ -1275,10 +1275,6 @@ client.on('message', message => {
         message.channel.sendEmbed(say);
         message.delete();
     };
-	
-let args = message.content.split(" ").slice(1);
-    
- 
 
 if (command == "tag") {
     let say = new Discord.RichEmbed()
