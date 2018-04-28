@@ -4,8 +4,8 @@ const fs = require("fs");
 const UserBlocked = new Set();
 
 client.on('ready', () => {
-	client.user.setGame(`-help | On ${client.guilds.size}`,'https://www.youtube.com/?hl=FR');
-	console.log('I am ready!');
+	client.user.setGame(`-help | On ${client.guilds.size} Servers`,'https://www.youtube.com/?hl=FR');
+	console.log('I am ready!'); 
 });  
 
 
