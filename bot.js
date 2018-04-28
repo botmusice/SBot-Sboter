@@ -9,7 +9,7 @@ client.on('ready', () => {
 });  
 
 
-client.on('message', msg => {
+client.on('message', msg => { 
 	var prefix = "-";
       if(!msg.channel.guild) return;
     if(msg.content.startsWith (prefix  + 'help')) {
