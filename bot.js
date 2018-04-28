@@ -7,6 +7,25 @@ const UserBlocked = new Set();
 client.on('ready', () => {
 	console.log('I am ready!'); 
 	
+	
+	client.on('ready', function(){
+    var ms = 40000 ;
+    var setGame = ['-inv','-help',`On ${client.guilds.size} Servers`, `${client.users.size} Users`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.youtube.com/gg`);
+    }, ms);
+
+});
+	
 client.on('message', message => {
     if (message.content === '-help')
    var embed = new Discord.RichEmbed()
@@ -14,30 +33,6 @@ client.on('message', message => {
         .setColor('RED')
        message.channel.sendEmbed(embed)
 
-});
-
-
-client.on("message", message => {
-	var prefix ="-";
-  let args = message.content.split(" ").slice(1);
-if (message.content.startsWith((prefix) + 'report')) {
-      let user = message.mentions.users.first();
-      let reason = args.slice(1).join(' ');
-      let modlog = client.channels.find('name', 'report');
-      if (!reason) return message.reply('**ضع سبباً مقنعاً**');
-        if (message.mentions.users.size < 1) return message.reply('**يجب عليك عمل منشن للعضو المراد الابلاغ عليه**').catch(console.error);
-
-  if (!modlog) return message.reply('**لا يوجد روم بأسم report**');
-  const embed = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .addField('نوع الرسالة:', 'Report')
-    .addField('المراد الابلاغ عليه:', `${user.username}#${user.discriminator} (${user.id}`)
-    .addField('صاحب الابلاغ:', `${message.author.username}#${message.author.discriminator}`)
-    .addField('السبب', reason);
-    message.delete()
-    return client.channels.get(modlog.id).sendEmbed(embed).catch(console.error);
-        }
 });
 
 
