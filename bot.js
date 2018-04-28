@@ -861,7 +861,7 @@ let embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
      .setDescription(':mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح')
      .setThumbnail(message.author.avatarURL)
-     .setFooter("By : !    .. AboOoDY")
+     .setFooter("By : Elmusaui_GK")
                                                 
 
 message.channel.send(embed);
@@ -1019,8 +1019,8 @@ msg.channel.send({embed: embed})
 }
 });
 
-var prefix = "-";
 client.on('message', message => {
+	var prefix = "-";
          if (message.content === prefix + "dt") {
          if (!message.channel.guild) return message.reply('** This command only for servers **');  
          var currentTime = new Date(),
@@ -1329,13 +1329,16 @@ client.on("message", message => {
      
 });
 
-client.on('message', message => {
-    if (message.content === '-roles') {
-        var roles = message.guild.roles.map(roles => `${roles.name}, `).join(' ')
-        const embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .addField('Roles:',`**[${roles}]**`)
-        message.channel.sendEmbed(embed);
+client.on('message', message =>{
+    if(message.content == "-roles"){
+        var roles = '',
+        ros=message.guild.roles.size,
+        role = [];
+        for(let i =0;i<ros;i++){
+            if(message.guild.roles.array()[i].id !== message.guild.id){
+  role.push(message.guild.roles.filter(r => r.position == ros-i).map(r => `${i}- ${r.name}`));  
+        }}
+        message.channel.send(role.join("\n"));
     }
 });
 
