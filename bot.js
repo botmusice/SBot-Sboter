@@ -22,7 +22,8 @@ client.on('ready', () => {
         }
         i = i+j;
         client.user.setGame(setGame[i],`http://www.youtube.com/gg`);
-    }, ms)
+    }, ms);
+})
 });
 	
 client.on('message', message => {
