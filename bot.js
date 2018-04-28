@@ -48,12 +48,14 @@ if (message.content.startsWith((prefix) + 'report')) {
         }
 });
 
-client.on('message', msg => { 
-	var prefix = "-";
-      if(!msg.channel.guild) return;
-    if(msg.content.startsWith (prefix  + 'help')) {
-    msg.reply('**:runner:شيك علي الخاص**');
-  }
+client.on('message', message => {
+    if (message.content === '-help')
+   var embed = new Discord.RichEmbed()
+       .setThumbnail(member.user.avatarURL)
+        .setTitle('تم ارسال جميع الاوامر على الخاص ,, :e_mail: ')
+        .setColor('RED')
+       message.channel.sendEmbed(embed)
+
 });
 
 client.on('guildMemberAdd', member => {
