@@ -31,7 +31,7 @@ client.on('message', message => {
 });
 
 client.on('ready', function(){
-    var ms = 30000 ;
+    var ms = 60000 ;
     var setGame = ['-inv','-help',`On ${client.guilds.size} Servers`];
     var i = -1;
     var j = 0;
