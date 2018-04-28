@@ -9,6 +9,28 @@ client.on('ready', () => {
 	console.log('I am ready!'); 
 });  
 
+client.on("message", message => {
+	var prefix ="-";
+  let args = message.content.split(" ").slice(1);
+if (message.content.startsWith((prefix) + 'report')) {
+      let user = message.mentions.users.first();
+      let reason = args.slice(1).join(' ');
+      let modlog = client.channels.find('name', 'report');
+      if (!reason) return message.reply('**ضع سبباً مقنعاً**');
+        if (message.mentions.users.size < 1) return message.reply('**يجب عليك عمل منشن للعضو المراد الابلاغ عليه**').catch(console.error);
+
+  if (!modlog) return message.reply('**لا يوجد روم بأسم report**');
+  const embed = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .addField('نوع الرسالة:', 'Report')
+    .addField('المراد الابلاغ عليه:', `${user.username}#${user.discriminator} (${user.id}`)
+    .addField('صاحب الابلاغ:', `${message.author.username}#${message.author.discriminator}`)
+    .addField('السبب', reason);
+    message.delete()
+    return client.channels.get(modlog.id).sendEmbed(embed).catch(console.error);
+        }
+});
 
 client.on('message', msg => { 
 	var prefix = "-";
@@ -177,6 +199,11 @@ client.on("message", message => {
    MEMBER
    تلقائياًً 
    =========================
+   للابلاغ عن شخص 
+   فقك انشئ شات باسم 
+   report 
+   وسوف يرسل هناك الابلاغ 
+   -report
    `)
 
 
@@ -227,6 +254,8 @@ if (message.content.startsWith(prefix + 'help')) {
 💎-bans  『لي عرض عدد الاشخاص المبندة』
 
 💎-link  『 لي انشاء رابط لسيرفر دسكورد 』
+
+💎-report  『 للابلاغ عن شخص  』
 
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 
