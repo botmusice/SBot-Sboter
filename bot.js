@@ -8,8 +8,8 @@ client.on('ready', () => {
 });
 
 client.on('ready', function(){
-    var ms = 30000 ;
-    var setGame = ['-inv','-help',"On ${client.guilds.size} Servers | ${client.users.size} Users"];
+    var ms = 20000 ;
+    var setGame = ['-inv','-help'];
     var i = -1;
     var j = 0;
     setInterval(function (){
