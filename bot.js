@@ -65,6 +65,11 @@ client.on('guildMemberAdd', (member) => {
 member.addRole(member.guild.roles.find('name', 'MEMBERS'));
 });
 
+
+client.on('guildMemberAdd', (member) => {
+member.addRole(member.guild.roles.find('name', 'VIP'));
+});
+
 client.on('guildMemberAdd', (member) => {
 member.addRole(member.guild.roles.find('name', 'USERS◇BOT'));
 });
