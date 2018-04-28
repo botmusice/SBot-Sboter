@@ -14,7 +14,7 @@ client.on('message', message => {
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
-            .setTitle('``INFO RAKFS BOT`` ')
+            .setTitle('``INFO SPEED BOT`` ')
             .addField('``Uptime``', [timeCon(process.uptime())], true)
             .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
             .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
@@ -31,7 +31,7 @@ client.on('message', message => {
 });
 
 client.on('ready', function(){
-    var ms = 60000 ;
+    var ms = 30000 ;
     var setGame = ['-inv','-help',`On ${client.guilds.size} Servers`];
     var i = -1;
     var j = 0;
