@@ -20,7 +20,7 @@ client.on('ready', function(){
             j = -1;
         }
         i = i+j;
-        client.user.setGame(setGame[i],`http://www.youtube.com`);
+        client.user.setGame(setGame[i],`http://www.youtube.com/gg`);
     }, ms);
 
 });
@@ -51,7 +51,6 @@ if (message.content.startsWith((prefix) + 'report')) {
 client.on('message', message => {
     if (message.content === '-help')
    var embed = new Discord.RichEmbed()
-       .setThumbnail(member.user.avatarURL)
         .setTitle('تم ارسال جميع الاوامر على الخاص ,, :e_mail: ')
         .setColor('RED')
        message.channel.sendEmbed(embed)
