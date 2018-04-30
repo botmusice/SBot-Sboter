@@ -1404,33 +1404,6 @@ client.on('message', message =>{
     }
 });
 
-var prefix = "-";
-client.on('message', message => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-  if (command == "say") {
-   message.channel.sendMessage(args.join("  "))
-  }
-});
-client.on("guildMemberRemove", member => {
-  let guild = member.guild;
-  guild.defaultChannel.sendmessage("", {embed: {
-  color: 808080,
-  author: {
-    name: member.user.username,
-    icon_url: member.user.avatarURL
-  },
-  title: guild.name,
-  description: ' Bye ..',
-}}).catch(console.error);
-  } );
-
 client.on('message', message => {
                                 if(!message.channel.guild) return;
                         if (message.content.startsWith('-ping')) {
