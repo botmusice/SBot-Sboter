@@ -40,65 +40,6 @@ client.on('message', message => {
     })
     }
     });
-client.on('message', message => {
-	var prefix ="-";
-if (message.content.startsWith(prefix + 'help')) {
-  var embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
-      .setDescription(`
-
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-
-:musical_note: اوامر الموسيقى :musical_note: 
-
-:musical_note:-play <name> | لتشغيل الموسيقى 
-
-:musical_note:-stop | لتوقيف الموسيقى 
-
-:musical_note:skip | لتخطي الموسيقى
- 
-:musical_note:-vol <number> | لتغيير الصوت 
-
-:musical_note:-pause | ايقاف بشكل موقت
-
-:musical_note:-resume | تكميل الموسيقى 
-
-:musical_note:-loop | لاعادة الموسيقى بوحدها 
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ●
-
-🎮『العاب واشياء』🎮
-
-🎮-كت تويت
-
-🎮-صراحه 
-
-🎮-خواطر
-
-🎮-فكك
-
-🎮-عواصم 
-
-🎮-هل تعلم
-
-🎮-لو خيروك
-
-🎮-اذكار
-
-🎮-عقاب
-
-🎮-نكت
-
-🎮-مريم
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-`)
-  message.author.sendEmbed(embed)
-
-}
-});
 
 client.on('message', message => {
 	var prefix ="-";
@@ -214,7 +155,67 @@ if (message.content.startsWith(prefix + 'help')) {
 
 }
 });
+
+client.on('message', message => {
+	var prefix ="-";
+if (message.content.startsWith(prefix + 'help')) {
+  var embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+:musical_note:  اوامر الموسيقى  :musical_note: 
+
+:musical_note: -play <name> | لتشغيل الموسيقى 
+
+:musical_note: -stop | لتوقيف الموسيقى 
+
+:musical_note: -skip | لتخطي الموسيقى
  
+:musical_note: -vol <number> | لتغيير الصوت 
+
+:musical_note: -pause | ايقاف بشكل موقت
+
+:musical_note: -resume | تكميل الموسيقى 
+
+:musical_note: -loop | لاعادة الموسيقى بوحدها 
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ●
+
+🎮『العاب واشياء』🎮
+
+🎮-كت تويت
+
+🎮-صراحه 
+
+🎮-خواطر
+
+🎮-فكك
+
+🎮-عواصم 
+
+🎮-هل تعلم
+
+🎮-لو خيروك
+
+🎮-اذكار
+
+🎮-عقاب
+
+🎮-نكت
+
+🎮-مريم
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+`)
+  message.author.sendEmbed(embed)
+
+}
+});
+
 client.on("message", message => {
 	var prefix = "-"; 
 	var roles = {}; 
