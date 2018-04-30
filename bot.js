@@ -10,7 +10,7 @@ client.on("message", message => {
 	var prefix = "-"; 
 	var roles = {}; 
 	var args = message.content.split(' ').slice(1); 
-	var msg = message.content.toLowerCase();
+	var msg = message.content.toLowerCase(); 
 	if( !message.guild ) return;
 	if( !msg.startsWith( prefix + 'role' ) ) return;
 	if( msg.toLowerCase().startsWith( prefix + 'roleremove' ) ){
