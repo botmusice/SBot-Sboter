@@ -12,7 +12,7 @@ const music = new Music(client, {
     playAlts: ["play", 'paly'],
     volumeCmd: 'vol',     // Sets the name for the 'volume' command.
     thumbnailType: 'high',
-    leaveCmd: 'stop',      // Sets the name for the 'leave' command.
+    leaveCmd: 'leave',      // Sets the name for the 'leave' command.
     anyoneCanSkip: true,
     disableLoop: false,
     searchCmd: 'search',
@@ -171,7 +171,7 @@ if (message.content.startsWith(prefix + 'help')) {
 
 :musical_note: -play <name> | لتشغيل الموسيقى 
 
-:musical_note: -stop | لتوقيف الموسيقى 
+:musical_note: -leave | لتوقيف الموسيقى وخروج البوت من الرووم 
 
 :musical_note: -skip | لتخطي الموسيقى
  
