@@ -108,7 +108,7 @@ if (message.content.startsWith(prefix + 'help')) {
 
 👑-kick 『لتعطي شخص كيك』
 
-👑-clear 『مسح الشات 』
+👑-clear『مسح الشات 』
 
 👑-ct  مـلاحظه: الاسم انت تختاره『لي انشاء روم كتابي』
 
@@ -1448,30 +1448,7 @@ m.delete();
 omar.reply("`تم حذف جميع الرتب بنجاح`")
 }// omar jedol / Codes
 });
-client.on("message", message => {
-    var prefix = "-";
-  if (msg.author.bot) return;
-  if (!msg.content.startsWith(prefix)) return;
-  let command = msg.content.split(" ")[0];
-  command = command.slice(prefix.length);
-  let args = msg.content.split(" ").slice(1);
 
-    if(command === "clear") {
-        const emoji = client.emojis.find("name", "wastebasket")
-    let textxt = args.slice(0).join("");
-    if(msg.member.hasPermission("MANAGE_MESSAGES")) {
-    if (textxt == "") {
-        msg.delete().then
-    msg.channel.send("***```ضع عدد الرسائل التي تريد مسحها 👌```***").then(m => m.delete(3000));
-} else {
-    msg.delete().then
-    msg.delete().then
-    msg.channel.bulkDelete(textxt);
-        msg.channel.send("```php\nعدد الرسائل التي تم مسحها: " + textxt + "\n```").then(m => m.delete(3000));
-        }    
-    }
-}
-});
 client.on('message', message =>{
     if(message.content == "-roles"){
         var roles = '',
@@ -1483,6 +1460,29 @@ client.on('message', message =>{
         }}
         message.channel.send(role.join("\n"));
     }
+});
+
+client.on("message", message => {
+    var prefix = "-";
+ 
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clear")) {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(':x: **You Dont Have Permission To Delete Messages');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done",
+        color: 0x06DF00,
+        description: "Message Deleted",
+        footer: {
+          text: "Elmusaui_GK"
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+
+     
 });
 
 client.on('message', message => {
