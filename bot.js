@@ -1086,29 +1086,6 @@ message.channel.send(embed);
     
 });
 
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`**
-      حياك الله ي بعد راسي
-       خش بتنورنا فعاليات وكل شيء حلو موجود !
-        ي بعد عيني الرابط تحت
-         SPEED MC NETWORK (:
-
-                                 [ https://discord.gg/33YYaA6 ] **`)
-}).catch(console.error)
-});
-
-client.on("guildMemberRemove", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`**
-      حياك الله ي بعد راسي
-       خش بتنورنا فعاليات وكل شيء حلو موجود !
-        ي بعد عيني الرابط تحت
-         SPEED MC NETWORK (:
-
-                                 [ https://discord.gg/33YYaA6 ] **`)
-}).catch(console.error)
-});
 
 var prefix = "-"
 client.on('message', message => {
