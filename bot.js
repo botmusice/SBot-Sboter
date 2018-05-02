@@ -55,6 +55,22 @@ client.on('message', message => {
     }
     });
 
+client.on('message', message => { 
+let PREFIX = '-'
+    if (message.content.startsWith(PREFIX + 'emojilist')) {
+
+        const List = message.guild.emojis.map(e => e.toString()).join(" ");
+
+        const EmojiList = new Discord.RichEmbed()
+            .setTitle('➠ Emojis') 
+            .setAuthor(message.guild.name, message.guild.iconURL) 
+            .setColor('RANDOM') 
+            .setDescription(List) 
+            .setFooter(message.guild.name) 
+        message.channel.send(EmojiList) 
+    }
+});
+
 client.on('message', message => {
 	var prefix ="-";
 if (message.content.startsWith(prefix + 'help')) {
@@ -74,7 +90,9 @@ if (message.content.startsWith(prefix + 'help')) {
 
 💎『اوامر عامة』💎
                         
-💎-server 『معلومات عن السيرفر』                      
+💎-server 『معلومات عن السيرفر』   
+
+💎-emojilist 『 لعرض ايموجيات السيرفر 』
 
 💎-servers 『علشان تشوف البوت بكم سيرفر اون لاين 』  
 
