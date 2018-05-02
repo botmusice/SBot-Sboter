@@ -6,7 +6,7 @@ const UserBlocked = new Set();
 const music = new Music(client, {
     prefix: "-", 
     youtubeKey: 'AIzaSyApvbcgvYRGulf1I1Ffjfhr2K-S6TX0e9w',
-    global: false,
+    global: false, 
     maxQueueSize: 50,        // Maximum queue size of 25.
     playCmd: 'play',        // Sets the name for the 'play' command.
     playAlts: ["play", 'paly'],
