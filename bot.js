@@ -13,7 +13,7 @@ const music = new Music(client, {
     volumeCmd: 'vol',     // Sets the name for the 'volume' command.
     thumbnailType: 'high',
     leaveCmd: 'leave',      // Sets the name for the 'leave' command.
-    anyoneCanSkip: true,
+    anyoneCanSkip: true, 
     disableLoop: false,
     searchCmd: 'search',
     requesterName: true,
