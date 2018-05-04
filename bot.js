@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const Music = require('discord.js-musicbot-addon');
 const client = new Discord.Client(); 
 const fs = require("fs"); 
+const moment = require("moment")
 const UserBlocked = new Set();
 const music = new Music(client, {
     prefix: "-", 
@@ -30,6 +31,34 @@ const music = new Music(client, {
 client.on('ready', () => {
 	console.log('I am ready!'); 
   });
+
+client.on('message', message => {
+    var prefix='-'
+    var args = message.content.split(' ')
+    if (message.content.toLowerCase().startsWith(prefix+"infoinv")) {
+var [embed,inv,uses]=[new Discord.RichEmbed(),null,''];
+message.guild.fetchInvites().then(i =>{
+    
+    inv=i.get(args[1])
+    if(inv.maxUses){
+        uses=+inv.uses+"/"+inv.maxUses
+    }else{
+        uses=+inv.uses
+    }
+
+
+
+      message.channel.send(new Discord.RichEmbed().setTitle('invite info').setAuthor(message.author.tag,message.author.displayAvatarURL)
+    .addField('inviter',i.get(args[1]).inviter,true)
+    .addField('createdAt',moment(i.get(args[1]).createdAt).format('YYYY/M/DD:h'),true)
+    .addField('expiresAt',moment(i.get(args[1]).expiresAt).format('YYYY/M/DD:h'),true)
+    .addField('channel',i.get(args[1]).channel,true)
+    .addField('uses',uses,true)
+    .addField('maxAge',i.get(args[1]).maxAge,true).setColor(030101).setFooter('By: '+message.author.tag,message.author.displayAvatarURL)
+    
+);
+        })}
+    });
 
 var prefix= "-";
 client.on("message", message => {
