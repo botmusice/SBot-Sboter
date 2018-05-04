@@ -35,7 +35,7 @@ client.on('ready', () => {
 client.on('message' , message => {
 var prefix ="-";
     if(message.content.startsWith(prefix + "set-wlc")) {
-    if(!message.guild.member.hasPermission("MANAGE_CHANNELS")) return message.reply("انت لا تملك صلاحية")
+    if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("انت لا تملك صلاحية")
   let welcomers = JSON.parse(fs.readFileSync("./wlc.json" , "utf8"));
 
 
