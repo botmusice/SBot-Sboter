@@ -54,7 +54,7 @@ let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
 	  .setThumbnail(message.author.avatarURL)
 	  .setFooter(copy, client.user.avatarURL);
 	   m.send({ embed: bc })
-	  msg.delete();
+	  message.delete();
 	  })
  }
 	   });
