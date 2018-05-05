@@ -32,6 +32,17 @@ client.on('ready', () => {
 	console.log('I am ready!'); 
   });
 
+var coinflip =["https://i.imgur.com/ounEiyN.png", "https://i.imgur.com/xUwvSde.png"]
+     client.on('message', message => {    
+	     var prefix = "-";
+         var args = message.content.split(" ").slice(1);         
+     if(message.content.startsWith(prefix + 'coinflip')) {
+          var embed = new Discord.RichEmbed()
+ .setImage(coinflip[Math.floor(Math.random() * coinflip.length)])
+ message.channel.sendEmbed(embed);
+     }
+ });
+
 client.on("message", message => {
 const prefix = '-';
                    
