@@ -1444,7 +1444,7 @@ client.on('message', message => {
  client.on('message', message => {
               if(!message.channel.guild) return;
     var prefix = "-";
-    if(message.content.startsWith(prefix + 'bc2')) {
+    if(message.content.startsWith(prefix + 'bc')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
@@ -1484,42 +1484,7 @@ client.on('message', message => {
     }
     });
 
- var prefix = "-"
-client.on('message', message => {
-  if (message.author.id === client.user.id) return;
-  if (message.guild) {
- let embed = new Discord.RichEmbed()
-  let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc') {
-      if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply("**You Don't Have ` ADMINISTRATOR ` Permission**");
-  if (!args[1]) {
-message.reply("**-bc <message>**");
-return;
-}
-      message.guild.members.forEach(m => {
-        if (!message.member.hasPermission('ADMINISTRATOR')) return;
-var Bsss = new Discord.RichEmbed()
-          .setAuthor(message.author.username, message.author.avatarURL)
-          .addField(' الـسيرفر', `${message.guild.name}`,true)
-          .addField(' الـمرسل ', `${message.author.username}#${message.author.discriminator}`,true)
-          .addField(' الرسالة ', args)
-          .setThumbnail(message.guild.iconURL)
-          .setColor('RANDOM')
-          m.send(`${m}`,{embed: Bsss});
-      });
-      const iMrkb = new Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL)   
-      .setTitle('✅| جاري ارسال رسالتك ') 
-      .addBlankField(true)
-      .addField('| عدد الاعضاء المرسل لهم ', message.guild.memberCount , true)        
-      .addField('📝| الرسالة ', args)
-      .setColor('RANDOM')  
-      message.channel.sendEmbed(iMrkb);          
-  }
-  } else {
-      return;
-  }
-});
+ 
 
 client.on('message', message => {
     if(message.content.includes('discord.gg')){
