@@ -50,11 +50,12 @@ const prefix = '-';
                             message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
                             const embed4 = new Discord.RichEmbed()
                                                             .setColor("#008000")
-                                .setDescription(":white_check_mark: | Delete " + args[1] + " Message!")
-                                                                                        message.delete("..");
+                                .setDescription(":white_check_mark: | Delete " + args[1] + " Message!")                                                        
                                 message.channel.sendEmbed(embed4);
+				    message.delete("..");
                             }
                           }
+
 });
 
 client.on('message' , message => {
