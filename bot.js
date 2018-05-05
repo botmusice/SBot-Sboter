@@ -1308,7 +1308,6 @@ const embed = new Discord.RichEmbed();
 embed.addField(":cloud_tornado:  الاسم", `**[ ${msg.author.username}#${msg.author.discriminator} ]**`, true)
 .addField(":id:  الايدي", `**[ ${msg.author.id} ]**`, true)
 .setColor("RANDOM")
-.setFooter(msg.author.username , msg.author.avatarURL)
 .setThumbnail(`${msg.author.avatarURL}`).setTimestamp()
 .setURL(`${msg.author.avatarURL}`)
 .addField(":spy:  الحالة", `**[ ${msg.author.presence.status.toUpperCase()} ]**`, true)
@@ -1316,8 +1315,9 @@ embed.addField(":cloud_tornado:  الاسم", `**[ ${msg.author.username}#${msg.
 .addField(":military_medal:  الرتب", `**[ ${msg.member.roles.filter(r => r.name).size} ]**`, true)
 .addField(":robot:  هل هو بوت", `**[ ${msg.author.bot.toString().toUpperCase()} ]**`, true)
  .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
-.addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)               
-   
+.addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true);              
+ .setFooter(`SpeedBot`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
+    .setThumbnail(heg.avatarURL);
 msg.channel.send({embed: embed})
 }
 });
