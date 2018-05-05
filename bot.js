@@ -47,13 +47,12 @@ return;
   message.guild.members.forEach(m => {
 if(!message.member.hasPermission('ADMINISTRATOR')) return;
       var bc = new Discord.RichEmbed()
+      .setColor('RANDOM')
   .setTitle('Broadcast')       
 .addField('Server', message.guild.name)    
 .addField('Sender', message.author.username)    
 .addField('Message', args)    
  .setFooter(copy, client.user.avatarURL);
-      .setThumbnail(message.guild.iconURL)
-      .setColor('RANDOM')
       m.sendMessage(args)
   });
          if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(":x: **ليس لديك صلاحية للنشر هنا**");
