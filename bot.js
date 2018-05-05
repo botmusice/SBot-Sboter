@@ -36,67 +36,17 @@ var coinflip =["https://i.imgur.com/ounEiyN.png", "https://i.imgur.com/xUwvSde.p
      client.on('message', message => {    
 	     var prefix = "-";
          var args = message.content.split(" ").slice(1);         
-     if(message.content.startsWith(prefix + 'coinflip')) {
+     if(message.content.startsWith(prefix + 'عملة')) {
           var embed = new Discord.RichEmbed()
  .setImage(coinflip[Math.floor(Math.random() * coinflip.length)])
  message.channel.sendEmbed(embed);
      }
  });
 
+
+
 client.on("message", message => {
-const prefix = '-';
-                   
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clr")) {
-                if (!message.member.hasPermission("ADMINISTRATOR"))  return;
- if (!args[1]) {
-                                const embed3 = new Discord.RichEmbed()
-                                .setDescription("-clr <number>")
-                                .setColor("RANDOM")
-                                message.channel.sendEmbed(embed3);
-                            } else {
-                            const messagecount = parseInt(args[1]);
-                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
-                                                          message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
-                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
-                            const embed4 = new Discord.RichEmbed()
-                                                            .setColor("#008000")
-                                .setDescription(":white_check_mark: | Delete " + args[1] + " Message!")                                                        
-                            message.delete("..");  
-			    message.channel.sendEmbed(embed4)
-				    message.delete("..");
-                            }
-                          }
-
-});
-
-client.on('message' , message => {
-var prefix ="-";
-    if(message.content.startsWith(prefix + "set-wlc")) {
-    if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("انت لا تملك صلاحية")
-  let welcomers = JSON.parse(fs.readFileSync("./wlc.json" , "utf8"));
-
-
-      welcomers[message.guild.id] = {
-        welcomers: message.channel.name
-      };
-
-        fs.writeFile("./wlc.json" , JSON.stringify(welcomers) , (err) => {
-          if(err) console.log(err)
-        });
-
-        let wlcEmbed = new Discord.RichEmbed()
-        .setTitle("Welcome Channel Set!")
-        .setColor("RANDOM")
-        .setDescription(`Set To ${message.channel.name}`)
-
-          message.channel.send(wlcEmbed)
-    
-    }
-});
-
-var prefix= "-";
-client.on("message", message => {
+	var prefix= "-";
     if(message.content.startsWith(prefix + 'v3min')) {
      let args = message.content.split(" ").slice(1);
        var nam = args.join(' ');
@@ -1335,6 +1285,23 @@ var prefix = "-";
 
 client.on("message", msg => {
 var prefix = "-";
+	    var args = msg.content.split(" ").slice(1);
+     let user = msg.mentions.users.first();
+     var men = msg.mentions.users.first();
+        var heg;
+        if(men) {
+            heg = men
+        } else {
+            heg = msg.author
+        }
+      var mentionned = msg.mentions.members.first();
+         var h;
+        if(mentionned) {
+            h = mentionned
+        } else {
+            h = msg.member
+        }
+               moment.locale('ar-TN');
 if(msg.content === prefix+ "id") {
 if(!msg.channel.guild) return msg.reply("**:x: اسف لكن هذا الامر للسيرفرات فقط **");     
 const embed = new Discord.RichEmbed();
@@ -1347,7 +1314,10 @@ embed.addField(":cloud_tornado:  الاسم", `**[ ${msg.author.username}#${msg.
 .addField(":spy:  الحالة", `**[ ${msg.author.presence.status.toUpperCase()} ]**`, true)
 .addField(":satellite_orbital:   يلعب", `**[ ${msg.author.presence.game === null ? "No Game" : msg.author.presence.game.name} ]**`, true)
 .addField(":military_medal:  الرتب", `**[ ${msg.member.roles.filter(r => r.name).size} ]**`, true)
-.addField(":robot:  هل هو بوت", `**[ ${msg.author.bot.toString().toUpperCase()} ]**`, true);
+.addField(":robot:  هل هو بوت", `**[ ${msg.author.bot.toString().toUpperCase()} ]**`, true)
+ .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
+.addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)               
+   
 msg.channel.send({embed: embed})
 }
 });
