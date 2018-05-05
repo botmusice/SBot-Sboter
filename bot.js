@@ -44,9 +44,8 @@ if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا ال
 if (!args[1]) {
 return;
 }
-  message.guild.members.forEach(m => {
 if(!message.member.hasPermission('ADMINISTRATOR')) return;
-      var bc = new Discord.RichEmbed()
+      message.guild.members.forEach(m => {
       .setColor('RANDOM')
   .setTitle('Broadcast')       
 .addField('Server', message.guild.name)    
