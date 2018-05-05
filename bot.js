@@ -34,38 +34,29 @@ client.on('ready', () => {
 
 
  client.on('message', message => {
+	 if(!message.channel.guild) return;
 	 var prefix = "-";
-if (message.author.id === client.user.id) return;
-if (message.guild) {
-let embed = new Discord.RichEmbed()
-let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc') {
-if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
-if (!args[1]) {
-return;
-}
+	 if(message.content.startsWith(prefix + 'bc')) {
+if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+ if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );		 
+let args = message.content.split(" ").join(" ").slice(2 + prefix.length);		 
+	let copy = "Elmusaui_GK";
+		 let request = `Requested By ${message.author.username}`;
+		 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');
+		 message.channel.send(`☑ | Done ... The Broadcast Message Has Been Sent For ${message.guild.members.size} Members`).then(m => m.delete(5000));
   message.guild.members.forEach(m => {
-if(!message.member.hasPermission('ADMINISTRATOR')) return;
-      var bc = new Discord.RichEmbed()
-      .setTitle('Broadcast')	
-      .addField('Server', message.guild.name)	
-      .addField('Sender', message.author.username)	
-      .addField('Message', args)
-      .setThumbnail(message.guild.iconURL)
-      .setColor('RANDOM')
-      m.sendMessage(args)
-  });
-         if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(":x: **ليس لديك صلاحية للنشر هنا**");
-  const AziRo = new Discord.RichEmbed()   
-  .setColor('RANDOM')
-  message.channel.sendEmbed(AziRo);          
-}
-} else {
-  return;
-}
-});
-
-
+	  var bc = new  Discord.RichEmbed()
+	  .setColor('RANDOM')
+          .setTitle('Broadcast')
+          .addField('Server', message.guild.name)
+	  .addField('Sender', message.author.username)
+	  .addField('Message', args)
+	  .setThumbnail(message.author.avatarURL)
+	  .setFooter(copy, client.user.avatarURL);
+	   m.send({ embed: bc })
+	  msg.delete();
+	  })
+		 });
 client.on('message', msg => {
 	var prefix = "-";
   if (msg.author.bot) return;
