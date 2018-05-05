@@ -34,10 +34,12 @@ client.on('ready', () => {
 
 client.on('message', message => {
 	var prefix = "-";
+	let copy = "Elmusaui_GK";
     if (message.author.id === client.user.id) return;
     if (message.guild) {
    let embed = new Discord.RichEmbed()
     let args = message.content.split(' ').slice(1).join(' ');
+	    message.channel.send(`☑ | Done ... The Broadcast Message Has Been Sent For ${message.guild.members.size} Members`).then(m => m.delete(5000));
 if(message.content.split(' ')[0] == prefix + 'broadcast') {
     if (!args[1]) {
 return;
@@ -45,7 +47,11 @@ return;
         message.guild.members.forEach(m => {
    if(!message.member.hasPermission('ADMINISTRATOR')) return;
             var bc = new Discord.RichEmbed()
-            .addField(' » الرسالة : ', args)
+	    .setTitle('Broadcast')    
+             .addField('Server', message.guild.name)      .addField('Sender', message.author.username)    
+             .addField('Message', args)    
+             .setThumbnail(message.author.
+             .setFooter(copy, client.user.avatarURL);
             .setColor('#ff0000')
             m.send(`${m}`,{embed: bc});
         });
