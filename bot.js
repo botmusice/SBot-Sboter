@@ -51,7 +51,8 @@ const prefix = '-';
                             const embed4 = new Discord.RichEmbed()
                                                             .setColor("#008000")
                                 .setDescription(":white_check_mark: | Delete " + args[1] + " Message!")                                                        
-                                message.channel.sendEmbed(embed4);
+                            message.delete("..");  
+			    message.channel.sendEmbed(embed4)
 				    message.delete("..");
                             }
                           }
