@@ -1282,43 +1282,35 @@ var prefix = "-";
     }
        
 });
-
-client.on("message", msg => {
-var prefix = "-";
-	    var args = msg.content.split(" ").slice(1);
-     let user = msg.mentions.users.first();
-     var men = msg.mentions.users.first();
+client.on('message', message => { 
+	var prefix ="-";
+           if (message.content.startsWith(prefix + "id")) {
+     var args = message.content.split(" ").slice(1);
+     let user = message.mentions.users.first();
+     var men = message.mentions.users.first();
         var heg;
         if(men) {
             heg = men
         } else {
-            heg = msg.author
+            heg = message.author
         }
-      var mentionned = msg.mentions.members.first();
+      var mentionned = message.mentions.members.first();
          var h;
         if(mentionned) {
             h = mentionned
         } else {
-            h = msg.member
+            h = message.member
         }
                moment.locale('ar-TN');
-if(msg.content === prefix+ "id") {
-if(!msg.channel.guild) return msg.reply("**:x: اسف لكن هذا الامر للسيرفرات فقط **");     
-const embed = new Discord.RichEmbed();
-embed.addField(":cloud_tornado:  الاسم", `**[ ${msg.author.username}#${msg.author.discriminator} ]**`, true)
-.addField(":id:  الايدي", `**[ ${msg.author.id} ]**`, true)
-.setColor("RANDOM")
-.setThumbnail(`${msg.author.avatarURL}`).setTimestamp()
-.setURL(`${msg.author.avatarURL}`)
-.addField(":spy:  الحالة", `**[ ${msg.author.presence.status.toUpperCase()} ]**`, true)
-.addField(":satellite_orbital:   يلعب", `**[ ${msg.author.presence.game === null ? "No Game" : msg.author.presence.game.name} ]**`, true)
-.addField(":military_medal:  الرتب", `**[ ${msg.member.roles.filter(r => r.name).size} ]**`, true)
-.addField(":robot:  هل هو بوت", `**[ ${msg.author.bot.toString().toUpperCase()} ]**`, true)
- .addField(': **[دخولك لديسكورد قبل]**', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
-.addField(': **[انضمامك لسيرفر قبل]**', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true);              
-msg.channel.send({embed: embed})
-}
-});
+      var id = new  Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL) 
+    .setColor("#707070")
+    .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
+    .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)               
+    .setFooter(`ProBot`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
+    .setThumbnail(heg.avatarURL);
+    message.channel.send(id)
+}       });
 
 client.on('message', message => {
 	var prefix = "-";
