@@ -32,6 +32,31 @@ client.on('ready', () => {
 	console.log('I am ready!'); 
   });
 
+client.on("message", message => {
+const prefix = '-';
+                   
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clr")) {
+                if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+ if (!args[1]) {
+                                const embed3 = new Discord.RichEmbed()
+                                .setDescription("-clr <number>")
+                                .setColor("RANDOM")
+                                message.channel.sendEmbed(embed3);
+                            } else {
+                            const messagecount = parseInt(args[1]);
+                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                                                          message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                            const embed4 = new Discord.RichEmbed()
+                                                            .setColor("#008000")
+                                .setDescription(":white_check_mark: | Delete " + args[1] + " Message!")
+                                                                                        message.delete("..");
+                                message.channel.sendEmbed(embed4);
+                            }
+                          }
+});
+
 client.on('message' , message => {
 var prefix ="-";
     if(message.content.startsWith(prefix + "set-wlc")) {
