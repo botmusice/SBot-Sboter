@@ -56,7 +56,6 @@ let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
 	   m.send({ embed: bc })
 	  msg.delete();
 	  })
-		 })
  }
 	   });
 client.on('message', msg => {
