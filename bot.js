@@ -34,6 +34,30 @@ client.on('ready', () => {
 	console.log('I am ready!'); 
   });
 
+client.on('message', message => {
+var prefix = "-";
+      if(message.content === prefix + "hchannel") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have Perms :x:');
+             message.channel.overwritePermissions(message.guild.id, {
+             READ_MESSAGES: false
+ })
+              message.channel.send('Channel Hided Successfully ! :white_check_mark:  ')
+ }
+});
+
+
+client.on('message', message => {
+var prefix = "-";
+      if(message.content === prefix + "schannel") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(':x:');
+             message.channel.overwritePermissions(message.guild.id, {
+             READ_MESSAGES: true
+ })
+              message.channel.send('Done  ')
+ }
+});
 
 client.on('message', message => {
 	var prefix ="-";
@@ -251,6 +275,10 @@ if (message.content.startsWith(prefix + 'help-admin')) {
 
 👑-unmutechannel 『لفتح الشات 』
 
+👑-hchannel 『لاخفاء الرروم 』
+
+👑-schannel 『لاضهار الرروم 』
+
 👑-bc 『لارسال رسالة لكل اعضاء السيرفر 』
 
 👑-clr <number> 『لمسح الشات بعدد 』
@@ -302,6 +330,38 @@ if (message.content.startsWith(prefix + 'help-admin')) {
 }
 });
 
+client.on('message', message => {
+	var prefix ="-";
+if (message.content.startsWith(prefix + 'help')) {
+  var embed = new Discord.RichEmbed() 
+      .setColor('RANDOM')
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+	  ═══════════ஜ۩۞۩ஜ════════════
+
+يرجى استخدام الأوامر التالية :
+
+-help-public
+
+:earth_americas:لمعرفة كافة أوامر العامة:earth_americas:
+
+-help-admin
+
+:crown:لمعرفة أوامر الأدارية:crown:
+
+-help-games
+
+:video_game:لمعرفة أوامر الالعاب:video_game:
+
+-help-music
+
+:musical_note:لمعرفة أوامر الميوزك:musical_note:
+
+	  `)
+  message.channel.sendEmbed(embed)
+}
+});
+
 
 client.on('message', message => {
     if (message.content === '-help-music') {
@@ -328,38 +388,6 @@ client.on('message', message => {
         .setColor('RED')
        message.channel.sendEmbed(embed)
     }
-});
-
-client.on('message', message => {
-	var prefix ="-";
-if (message.content.startsWith(prefix + 'help')) {
-  var embed = new Discord.RichEmbed() 
-      .setColor('RANDOM')
-      .setThumbnail(message.author.avatarURL)
-      .setDescription(`
-	  ═══════════ஜ۩۞۩ஜ════════════
-
-يرجى استخدام الأوامر التالية :
-
--help-generale
-
-:earth_americas:لمعرفة كافة أوامر العامة:earth_americas:
-
--help-admin
-
-:crown:لمعرفة أوامر الأدارية:crown:
-
--help-games
-
-:video_game:لمعرفة أوامر الالعاب:video_game:
-
--help-music
-
-:musical_note:لمعرفة أوامر الميوزك:musical_note:
-
-	  `)
-  message.channel.sendEmbed(embed)
-}
 });
 
 client.on("message", message => { 
