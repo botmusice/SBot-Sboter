@@ -74,6 +74,8 @@ if (message.content.startsWith(prefix + 'help-public')) {
 
 💎-report  『 للابلاغ عن شخص  』
 
+💎-profile  『 لاضهار معلوماتك مع عدد الدعوات السيرفر 』
+
 🎴-avatar 『لي عرض صورتك او صوره اي شخص』
 
 🎴-image 『لي عرض صوره السيرفر』
@@ -251,6 +253,8 @@ if (message.content.startsWith(prefix + 'help-admin')) {
 
 👑-bc 『لارسال رسالة لكل اعضاء السيرفر 』
 
+👑-clr <number> 『لمسح الشات بعدد 』
+
 👑-role <mention+role name> 『لاعطاء رتبة لشخص』
 
 👑-role all <role name> 『لاعطاء الجميع رتبة معينة』
@@ -328,7 +332,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	var prefix ="-";
-if (message.content.startsWith(prefix + 'help-admin')) {
+if (message.content.startsWith(prefix + 'help')) {
   var embed = new Discord.RichEmbed() 
       .setColor('RANDOM')
       .setThumbnail(message.author.avatarURL)
@@ -744,7 +748,7 @@ var unmuteembeddm = new Discord.RichEmbed()
 	
 client.on('ready', function(){	
     var ms = 40000 ;	
-    var setGame = ['Fixing | soon | 1h '];	
+    var setGame = ['-inv','-help',`On ${client.guilds.size} Servers`,`${client.users.size} Users`];	
     var i = -1;	
     var j = 0;	
     setInterval(function (){	
