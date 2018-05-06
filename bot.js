@@ -4,6 +4,8 @@ const client = new Discord.Client();
 const fs = require("fs"); 
 const moment = require("moment");
 const UserBlocked = new Set();
+ const pretty = require('pretty-ms')
+,ti={};
 const music = new Music(client, {
     prefix: "-", 
     youtubeKey: 'AIzaSyApvbcgvYRGulf1I1Ffjfhr2K-S6TX0e9w',
@@ -275,179 +277,7 @@ client.on('message', message => {
 
 });
 
-client.on('message', message => {
-	var prefix ="-";
-if (message.content.startsWith(prefix + 'help')) {
-  var embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
-      .setDescription(`
-:comet: -سرعه اتصال ممتازه
-:heavy_check_mark: -سهل الاستخدام  
-:octagonal_sign: -منع انفايت السيرفرات الا الادمنس 
-:timer: -البوت 24 ساعة
 
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-
-💎『اوامر عامة』💎
-                        
-💎-server 『معلومات عن السيرفر』   
-
-💎-emojilist 『 لعرض ايموجيات السيرفر 』
-
-💎-servers 『علشان تشوف البوت بكم سيرفر اون لاين 』  
-
-💎-bot or -info 『لمعرف البوت بكم سيرفر』
-
-💎-dt 『لمعرفه  الوقت والتاريخ』
-
-💎-ping 『لمعرفه سرعه البوت』
-
-💎-members 『معلومات عن الاعضاء』
-
-💎-embed 『خاصيه غرد لكن بغير طريقه』
-
-💎-say 『لي يكرر الكلام الذي تقوله』
-
-💎-animal  『لي اضهار صور  للحيوانات』
-
-💎-id  『لي عرض معلومات عنك 』
-
-💎-bans  『لي عرض عدد الاشخاص المبندة』
-
-💎-link  『 لي انشاء رابط لسيرفر دسكورد 』
-
-💎-report  『 للابلاغ عن شخص  』
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-
-👑『اوامر ادارية』👑
-
-👑-ban 『لتعطي شخص باند』
-
-👑-kick 『لتعطي شخص كيك』
-
-👑-clear『مسح الشات 』
-
-👑-ct  مـلاحظه: الاسم انت تختاره『لي انشاء روم كتابي』
-
-👑-cv  مـلاحظه: الاسم انت تختاره『لي انشاء روم صوتي』
-
-👑-delet  『كـود يحذف الـروم سواء صوتي او كتابي』
-
-👑-dr  『لي حذف جميع الرانكات 』
-
-👑-dc  『لي حذف جميع الروومات 』
-
-👑-mute 『لتعطي شخص ميوت مع اختيار السبب 』
-
-👑-unmute 『لفك الميوت عن الشخص 』
-
-👑-mutechannel 『لقفل الشات 』
-
-👑-unmutechannel 『لفتح الشات 』
-
-👑-bc 『لارسال رسالة لكل اعضاء السيرفر 』
-
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-
-🎲『القرعة』🎲
-
-🎲-roll 1   『القرعة من 1 الى 25』
-
-🎲-roll 2   『القرعة من 1 الى 50』
-
-🎲-roll 3   『القرعة من 1 الى 75』
-
-🎲-roll 4   『القرعة من 1 الى 100』
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-
-🎴『اوامر الصور』🎴
-
-🎴-avatar 『لي عرض صورتك او صوره اي شخص』
-
-🎴-image 『لي عرض صوره السيرفر』
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-
-💎『الدعم الفني والمساعدة』💎
-
--inv |  لي اضافه البوت 
-
--support|   الدعم الفني و المساعدة
-
--contact | لمراسلة صاحب البوت
-
- مصممي البوت | 𝒮ˣᶜєℓмυsαυɪ_ɢĸ
-#7300  / SpeedMC#4421
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-`)
-  message.author.sendEmbed(embed)
-
-}
-});
-
-client.on('message', message => {
-	var prefix ="-";
-if (message.content.startsWith(prefix + 'help')) {
-  var embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
-      .setDescription(`
-
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-
-:musical_note:  اوامر الموسيقى  :musical_note: 
-
-:musical_note: -play <name> | لتشغيل الموسيقى 
-
-:musical_note: -leave | لتوقيف الموسيقى وخروج البوت من الرووم 
-
-:musical_note: -skip | لتخطي الموسيقى
- 
-:musical_note: -vol <number> | لتغيير الصوت 
-
-:musical_note: -pause | ايقاف بشكل موقت
-
-:musical_note: -resume | تكميل الموسيقى 
-
-:musical_note: -loop | لاعادة الموسيقى بوحدها 
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ●
-
-🎮『العاب واشياء』🎮
-
-🎮-كت تويت
-
-🎮-صراحه 
-
-🎮-خواطر
-
-🎮-فكك
-
-🎮-عواصم 
-
-🎮-هل تعلم
-
-🎮-لو خيروك
-
-🎮-اذكار
-
-🎮-عقاب
-
-🎮-نكت
-
-🎮-مريم
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-`)
-  message.author.sendEmbed(embed)
-
-}
-});
 
 client.on("message", message => {
 	var prefix = "-"; 
@@ -567,7 +397,7 @@ var unmuteembeddm = new Discord.RichEmbed()
 	
 client.on('ready', function(){	
     var ms = 40000 ;	
-    var setGame = ['-inv','-help',`On ${client.guilds.size} Servers`,`${client.users.size} Users`];	
+    var setGame = ['Fixing | soon | 1h '];	
     var i = -1;	
     var j = 0;	
     setInterval(function (){	
@@ -1236,16 +1066,56 @@ client.on('message', message => {
     }
 });
 
-    client.on('message', message => {
-var prefix = "-";
-var viper = ["https://f.top4top.net/p_682it2tg6.png%22","https://e.top4top.net/p_682a1cus5.png%22","https://d.top4top.net/p_682pycol4.png%22","https://c.top4top.net/p_682vqehy3.png%22","https://b.top4top.net/p_682mlf9d2.png%22","https://a.top4top.net/p_6827dule1.png%22","https://b.top4top.net/p_682g1meb10.png%22","https://a.top4top.net/p_682jgp4v9.png%22","https://f.top4top.net/p_682d4joq8.png%22","https://e.top4top.net/p_6828o0e47.png%22","https://d.top4top.net/p_6824x7sy6.png%22","https://c.top4top.net/p_682gzo2l5.png%22","https://b.top4top.net/p_68295qg04.png%22","https://a.top4top.net/p_682zrz6h3.png%22","https://f.top4top.net/p_6828vkzc2.png%22","https://e.top4top.net/p_682i8tb11.png",]
-        var args = message.content.split(" ").slice(1);
-    if(message.content.startsWith(prefix + 'لو خيروك')) {
-         var lo = new Discord.RichEmbed()
-.setImage(viper[Math.floor(Math.random() * viper.length)])
-message.channel.sendEmbed(lo);
-    }
-});
+var al7arthyCodes = ["https://f.top4top.net/p_682it2tg6.png","https://e.top4top.net/p_682a1cus5.png","https://d.top4top.net/p_682pycol4.png","https://c.top4top.net/p_682vqehy3.png","https://b.top4top.net/p_682mlf9d2.png","https://a.top4top.net/p_6827dule1.png","https://b.top4top.net/p_682g1meb10.png","https://a.top4top.net/p_682jgp4v9.png","https://f.top4top.net/p_682d4joq8.png","https://e.top4top.net/p_6828o0e47.png","https://d.top4top.net/p_6824x7sy6.png","https://c.top4top.net/p_682gzo2l5.png","https://b.top4top.net/p_68295qg04.png","https://a.top4top.net/p_682zrz6h3.png","https://f.top4top.net/p_6828vkzc2.png","https://e.top4top.net/p_682i8tb11.png"]
+var al7arthyCodes2 = ["📙__60%__  **|**  📘__40%__","📙__63%__  **|**  📘__37%__","📙__89%__  **|**  📘__11%__","📙__97%__  **|**  📘__3%__"]
+client.on('message', message => {
+    if(!message.guild) return;
+    if (message.author.bot) return;
+      let id = message.author.id,prefix="-";//البريفكس
+      if (ti[id] && (new Date).getTime() - ti[id] < 20*1000) {
+          let r = (new Date).getTime() - ti[id];
+          r = 20*1000 - r;
+      message.channel.send(` **Please wait ${pretty(r, {verbose:true})}**`).then(m => m.delete(5000));
+      return;
+      }
+      if ( message.content == prefix+'لو خيروك'){
+         
+          try{
+  //body
+  }catch(e){
+ 
+  }
+         var Embed = new Discord.RichEmbed()
+.setImage(al7arthyCodes[Math.floor(Math.random() * al7arthyCodes.length)])
+message.channel.sendEmbed(Embed).then(msg => {
+    msg.react('📘').then( r => {
+        msg.react('📙')
+ 
+        let blueFilter = (reaction, user) => reaction.emoji.name === '📘' && user.id === message.author.id;
+    let orangeFilter = (reaction, user) => reaction.emoji.name === '📙' && user.id === message.author.id;
+ 
+ 
+    let blue = msg.createReactionCollector(blueFilter, { time: 15000 });
+    let orange = msg.createReactionCollector(orangeFilter, { time: 15000 });
+ 
+ 
+    blue.on("collect", r => {
+        msg.delete();
+        message.channel.send(al7arthyCodes2[Math.floor(Math.random() * al7arthyCodes2.length)]).then(m => m.delete(60000));
+ 
+        })
+       
+ orange.on("collect", r => {
+        msg.delete();
+        message.channel.send(al7arthyCodes2[Math.floor(Math.random() * al7arthyCodes2.length)]).then(m => m.delete(60000));
+ 
+        })
+ 
+                                })
+                                })
+                              ti[id] = (new Date).getTime()
+                                }
+                                });
 
     client.on('message', message => {
 var prefix = "-";
