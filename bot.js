@@ -35,6 +35,353 @@ client.on('ready', () => {
   });
 
 
+client.on('message', message => {
+	var prefix ="-";
+if (message.content.startsWith(prefix + 'help-public')) {
+  var embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+💎『اوامر عامة』💎
+                        
+💎-server 『معلومات عن السيرفر』   
+
+💎-emojilist 『 لعرض ايموجيات السيرفر 』
+
+💎-servers 『علشان تشوف البوت بكم سيرفر اون لاين 』  
+
+💎-bot  『لمعرف البوت بكم سيرفر』
+
+💎-dt 『لمعرفه  الوقت والتاريخ』
+
+💎-ping 『لمعرفه سرعه البوت』
+
+💎-members 『معلومات عن الاعضاء』
+
+💎-embed 『خاصيه غرد لكن بغير طريقه』
+
+💎-say 『لي يكرر الكلام الذي تقوله』
+
+💎-animal  『لي اضهار صور  للحيوانات』
+
+💎-id  『لي عرض معلومات عنك 』
+
+💎-bans  『لي عرض عدد الاشخاص المبندة』
+
+💎-link  『 لي انشاء رابط لسيرفر دسكورد 』
+
+💎-report  『 للابلاغ عن شخص  』
+
+🎴-avatar 『لي عرض صورتك او صوره اي شخص』
+
+🎴-image 『لي عرض صوره السيرفر』
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+💎『الدعم الفني والمساعدة』💎
+
+-inv |  لي اضافه البوت 
+
+-support|   الدعم الفني و المساعدة
+
+-contact | لمراسلة صاحب البوت
+
+ مصممي البوت | 𝒮ˣᶜєℓмυsαυɪ_ɢĸ
+#7300  / SpeedMC#4421
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+`)
+  message.author.sendEmbed(embed)
+
+}
+});
+
+client.on('message', message => {
+	var prefix ="-";
+if (message.content.startsWith(prefix + 'help-music')) {
+  var embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+:musical_note:  اوامر الموسيقى  :musical_note: 
+
+:musical_note: -play <name> | لتشغيل الموسيقى 
+
+:musical_note: -leave | لتوقيف الموسيقى وخروج البوت من الرووم 
+
+:musical_note: -skip | لتخطي الموسيقى
+ 
+:musical_note: -vol <number> | لتغيير الصوت 
+
+:musical_note: -pause | ايقاف بشكل موقت
+
+:musical_note: -resume | تكميل الموسيقى 
+
+:musical_note: -loop | لاعادة الموسيقى بوحدها 
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+💎『الدعم الفني والمساعدة』💎
+
+-inv |  لي اضافه البوت 
+
+-support|   الدعم الفني و المساعدة
+
+-contact | لمراسلة صاحب البوت
+
+ مصممي البوت | 𝒮ˣᶜєℓмυsαυɪ_ɢĸ
+#7300  / SpeedMC#4421
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+`)
+  message.author.sendEmbed(embed)
+}
+});
+
+client.on('message', message => {
+	var prefix ="-";
+if (message.content.startsWith(prefix + 'help-games')) {
+  var embed = new Discord.RichEmbed() 
+      .setColor('RANDOM')
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ●
+
+🎮『العاب واشياء』🎮
+
+🎮-كت تويت
+
+🎮-صراحه 
+
+🎮-خواطر
+
+🎮-فكك
+
+🎮-عواصم 
+
+🎮-هل تعلم
+
+🎮-لو خيروك
+
+🎮-اذكار
+
+🎮-عقاب
+
+🎮-نكت
+
+🎮-مريم
+
+🎮-عملة
+
+🎲-roll 1   『القرعة من 1 الى 25』
+
+🎲-roll 2   『القرعة من 1 الى 50』
+
+🎲-roll 3   『القرعة من 1 الى 75』
+
+🎲-roll 4   『القرعة من 1 الى 100』
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+💎『الدعم الفني والمساعدة』💎
+
+-inv |  لي اضافه البوت 
+
+-support|   الدعم الفني و المساعدة
+
+-contact | لمراسلة صاحب البوت
+
+ مصممي البوت | 𝒮ˣᶜєℓмυsαυɪ_ɢĸ
+#7300  / SpeedMC#4421
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+`)
+  message.author.sendEmbed(embed)
+}
+});
+
+
+
+
+client.on('message', message => {
+	var prefix ="-";
+if (message.content.startsWith(prefix + 'help-admin')) {
+  var embed = new Discord.RichEmbed() 
+      .setColor('RANDOM')
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+👑『اوامر ادارية』👑
+
+👑-ban 『لتعطي شخص باند』
+
+👑-kick 『لتعطي شخص كيك』
+
+👑-clear『مسح الشات 』
+
+👑-ct  مـلاحظه: الاسم انت تختاره『لي انشاء روم كتابي』
+
+👑-cv  مـلاحظه: الاسم انت تختاره『لي انشاء روم صوتي』
+
+👑-delet  『كـود يحذف الـروم سواء صوتي او كتابي』
+
+👑-v3min  『لانشاء روم صوتي 3 دقائق 』
+
+👑-dr  『لي حذف جميع الرانكات 』
+
+👑-dc  『لي حذف جميع الروومات 』
+
+👑-mute 『لتعطي شخص ميوت مع اختيار السبب 』
+
+👑-unmute 『لفك الميوت عن الشخص 』
+
+👑-mutechannel 『لقفل الشات 』
+
+👑-unmutechannel 『لفتح الشات 』
+
+👑-bc 『لارسال رسالة لكل اعضاء السيرفر 』
+
+👑-role <mention+role name> 『لاعطاء رتبة لشخص』
+
+👑-role all <role name> 『لاعطاء الجميع رتبة معينة』
+
+👑-role humans <rank name> 『لاعطاء البشريين رتبة』
+
+👑-role bots <rank name> 『للاعطاء البوتات رتبة』
+
+<role  للحذف فقط استبدل  
+بـ roleRemove>
+ 
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+   للترحيب و المغادره 
+   فقط انشئ شات بأسم
+   welcome
+   و سوف يرحب البوت ب الجدد و يودع الذين خرجو من سيرفرك
+   
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+   لأضافه الرتبه التلقائيه
+   فقط دع رتبه الأشخاص العادين بهذا الأسم
+   MEMBERS
+   و اي احد يدخل السيرفر جديد البوت يعطيه رتبه 
+   MEMBERS
+   لقائياًً 
+   
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+   
+💎『الدعم الفني والمساعدة』💎
+
+-inv |  لي اضافه البوت 
+
+-support|   الدعم الفني و المساعدة
+
+-contact | لمراسلة صاحب البوت
+
+ مصممي البوت | 𝒮ˣᶜєℓмυsαυɪ_ɢĸ
+#7300  / SpeedMC#4421
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+`)
+  message.author.sendEmbed(embed)
+}
+});
+
+
+client.on('message', message => {
+    if (message.content === '-help-music') {
+   var embed = new Discord.RichEmbed()
+        .setTitle('تم ارسال جميع الاوامر على الخاص ,, :e_mail: ')
+        .setColor('RANDOM')
+       message.channel.sendEmbed(embed)
+    }
+});
+
+client.on('message', message => {
+    if (message.content === '-help-admin') {
+   var embed = new Discord.RichEmbed()
+        .setTitle('تم ارسال جميع الاوامر على الخاص ,, :e_mail: ')
+        .setColor('RANDOM')
+       message.channel.sendEmbed(embed)
+    }
+});
+
+client.on('message', message => {
+    if (message.content === '-help-public') {
+   var embed = new Discord.RichEmbed()
+        .setTitle('تم ارسال جميع الاوامر على الخاص ,, :e_mail: ')
+        .setColor('RED')
+       message.channel.sendEmbed(embed)
+    }
+});
+
+client.on('message', message => {
+	var prefix ="-";
+if (message.content.startsWith(prefix + 'help-admin')) {
+  var embed = new Discord.RichEmbed() 
+      .setColor('RANDOM')
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+	  ═══════════ஜ۩۞۩ஜ════════════
+
+يرجى استخدام الأوامر التالية :
+
+-help-generale
+
+:earth_americas:لمعرفة كافة أوامر العامة:earth_americas:
+
+-help-admin
+
+:crown:لمعرفة أوامر الأدارية:crown:
+
+-help-games
+
+:video_game:لمعرفة أوامر الالعاب:video_game:
+
+-help-music
+
+:musical_note:لمعرفة أوامر الميوزك:musical_note:
+
+	  `)
+  message.channel.sendEmbed(embed)
+}
+});
+
+client.on("message", message => { 
+var prefix = "-";
+  let args = message.content.split(" ").slice(1);
+if (message.content.startsWith((prefix) + 'report')) {
+      let user = message.mentions.users.first();
+      let reason = args.slice(1).join(' ');
+      let modlog = client.channels.find('name', 'report');
+      if (!reason) return message.reply('**ضع سبباً مقنعاً**');
+        if (message.mentions.users.size < 1) return message.reply('**يجب عليك عمل منشن للعضو المراد الابلاغ عليه**').catch(console.error);
+
+  if (!modlog) return message.reply('**لا يوجد روم بأسم report**');
+  const embed = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .addField('نوع الرسالة:', 'Report')
+    .addField('المراد الابلاغ عليه:', `${user.username}#${user.discriminator} (${user.id}`)
+    .addField('صاحب الابلاغ:', `${message.author.username}#${message.author.discriminator}`)
+    .addField('السبب', reason);
+    message.delete()
+    return client.channels.get(modlog.id).sendEmbed(embed).catch(console.error);
+        }
+});
+
+
  client.on('message', message => {
 	 if(!message.channel.guild) return;
 	 var prefix = "-";
@@ -286,7 +633,7 @@ client.on("message", message => {
 	var msg = message.content.toLowerCase(); 
 	if( !message.guild ) return;
 	if( !msg.startsWith( prefix + 'role' ) ) return;
-	if( msg.toLowerCase().startsWith( prefix + 'roleremove' ) ){
+	if( msg.toLowerCase().startsWith( prefix + 'roleRemove' ) ){
 		if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
 		if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
 		var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
@@ -413,14 +760,6 @@ j = 1;
 	
 });
 
-client.on('message', message => {
-    if (message.content === '-help') {
-   var embed = new Discord.RichEmbed()
-        .setTitle('تم ارسال جميع الاوامر على الخاص ,, :e_mail: ')
-        .setColor('RED')
-       message.channel.sendEmbed(embed)
-    }
-});
 
 
 
@@ -564,32 +903,7 @@ client.on('message', message => {
     }
 });
 
-client.on("message", message => {
-    if (message.content === "-help") {
-        const embed = new Discord.RichEmbed()
-            .setColor("RANDOM")
-            .setThumbnail(message.author.avatarURL)
-            .setDescription(`
-  =========================
-   للترحيب و المغادره 
-   فقط انشئ شات بأسم
-   welcome
-   و سوف يرحب البوت ب الجدد و يودع الذين خرجو من سيرفرك
-   =========================
-   لأضافه الرتبه التلقائيه
-   فقط دع رتبه الأشخاص العادين بهذا الأسم
-   MEMBERS
-   و اي احد يدخل السيرفر جديد البوت يعطيه رتبه 
-   MEMBERS
-   تلقائياًً 
-   =========================
-   `)
 
-
-        message.author.sendEmbed(embed)
-
-    }
-});
 
 
 
