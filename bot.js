@@ -581,17 +581,6 @@ var mentionned = message.mentions.members.first();
      });
 
 
-client.on('message', message => {
-    let args = message.content.split(' ').slice(1).join(' ');
-    if (message.content.startsWith('**-bcall')){
-    if(!message.author.id === '349616310734553088') return;
-    message.channel.sendMessage('جاري ارسال الرسالة :white_check_mark:')
-    client.users.forEach(m =>{
-    m.sendMessage(args)
-    })
-    }
-    });
-
 client.on('message', message => { 
 let PREFIX = '-'
     if (message.content.startsWith(PREFIX + 'emojilist')) {
