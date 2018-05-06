@@ -1835,27 +1835,39 @@ client.on('message', message =>{
     }
 });
 
-client.on("message", message => {
-    var prefix = "-";
- 
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clear")) {
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(':x: **You Dont Have Permission To Delete Messages');
-        var msg;
-        msg = parseInt();
-      
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "Done",
-        color: 0x06DF00,
-        description: "Message Deleted",
-        footer: {
-          text: "Elmusaui_GK"
+client.on('message', message =>{
+	var prefix = "-";
+    if(message.author.bot) return;
+    if(!message.content == (prefix+'clear'))
+if(!true) return;
+    if(message.content.split(' ')[0] == (prefix+'clear')){
+    var lmt = message.content.split(' ')[1]
+    ,  hang = 0
+    ,  max  = 0;
+    
+    if(!lmt) lmt = 200;
+    if(typeof lmt !== 'number') return;
+    if(lmt > 100){
+        for(;lmt > 100;){
+        lmt--;
+        hang++;
         }
-      }}).then(msg => {msg.delete(3000)});
-                          }
-
+        }
+     message.channel.fetchMessages({limite:lmt}).then(msgs=>{
+     msgs.channel.bulkDelete(msgs);
+     });
+     if(hang > 100){
+         hang = 100;
+     }
+        message.channel.fetchMessages({limite:hang}).then(msgs=>{
+        message.channel.bulkDelete(msgs);
+     });
      
+    max= hang+lmt;
+    message.reply(` **Done, i have delete ${max} messages!**.`).catch(()=>{
+        message.reply(` **Sorry, i can only bulk delete messages that are under 14 days old**.`)
+    });
+    }
 });
 
 client.on('message', message => {
