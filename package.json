@@ -13,6 +13,8 @@
     "finalhandler": "^1.1.1",
     "fortnite": "^3.0.0",
     "fs": "^0.0.2",
+    "array-sort": "1.0.0",
+    "table": "4.0.3",
     "canvas": "^1.6.3",
     "get-youtube-id": "^1.0.0",
     "jimp": "^0.2.28",
