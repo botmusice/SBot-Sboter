@@ -76,6 +76,8 @@ if (message.content.startsWith(prefix + 'help-public')) {
 
 💎-uptime 『يعرض لك صار للبوت كم شغال』
 
+💎-draw 『يرد عليك بصورة للكلام الذي قلته』
+
 💎-emojilist 『 لعرض ايموجيات السيرفر 』
 
 💎-servers 『علشان تشوف البوت بكم سيرفر اون لاين 』  
@@ -337,33 +339,37 @@ if (message.content.startsWith(prefix + 'help-admin')) {
 });
 
 client.on('message', message => {
-var prefix = "f!";
+    var prefix = "-"
+    let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
 
-    if (message.author.id === client.user.id) return;
-    if (message.guild) {
-   let embed = new Discord.RichEmbed()
-    let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc') {
-    if (!args[1]) {
-message.channel.send("**f!bc <message>**");
-return;
+  let args = message.content.split(" ").slice(1);
+
+
+if(command == "draw") {
+    var Canvas = require('canvas')
+  , Image = new Canvas.Image
+  , canvas = new Canvas(450, 170)
+  , ctx = canvas.getContext('2d');
+  ctx.font = '30px Impact';
+  let args = message.content.split(" ").slice(1);
+  
+Image.src = canvas.toBuffer();
+
+    console.log(Image);
+ctx.drawImage(Image, 0, 0, Image.width / 470, Image.height / 170);
+ctx.fillText(args.join("  "),110, 70);
+
+
+ctx.beginPath();
+ctx.lineTo(50, 102);
+ctx.stroke();
+
+message.channel.sendFile(canvas.toBuffer());
 }
-        message.guild.members.forEach(m => {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return;
-            var bc = new Discord.RichEmbed()
-            .addField('» السيرفر :', `${message.guild.name}`)
-            .addField('» المرسل : ', `${message.author.username}#${message.author.discriminator}`)
-            .addField(' » الرسالة : ', args)
-            .setColor('#ff0000')
-            // m.send(`[${m}]`);
-            m.send(`${m}`,{embed: bc});
-        });
-    }
-    } else {
-        return;
-    }
-});
+}).on('ready', () => {
 
+});
     
 client.on('message', message => {
      var prefix = "-"
