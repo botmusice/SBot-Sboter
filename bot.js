@@ -867,7 +867,7 @@ var unmuteembeddm = new Discord.RichEmbed()
 	
 client.on('ready', function(){	
     var ms = 40000 ;	
-    var setGame = ['-inv','-help',`On ${client.guilds.size} Servers`,`${client.users.size} Users`];	
+    var setGame = ['-inv','-support','-help',`On ${client.guilds.size} Servers`,`${client.users.size} Users`];	
     var i = -1;	
     var j = 0;	
     setInterval(function (){	
