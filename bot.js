@@ -10,7 +10,7 @@ const jimp = require('jimp');
 ,ti={};   
 
 
-client.on('ready', () => {
+client.on('ready', () => { 
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
