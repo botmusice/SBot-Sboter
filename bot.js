@@ -34,49 +34,7 @@ client.on('message', message =>{
         message.channel.send(`**\`\`\`xl\n${res}\`\`\`**`);
     }
 });
-
-var Codes = "443908590214971412";
-var Codess = new Eris("BOT_TOKEN");
  
-Codess.on("ready", ready => {
-setInterval(function(){
- 
-            var currentTime = new Date(),
-            hours = currentTime.getHours() + 0 ,
-            minutes = currentTime.getMinutes(),
-            seconds = currentTime.getSeconds(),
-            years = currentTime.getFullYear(),
-            month = currentTime.getMonth() + 1,
-            day = currentTime.getDate(),
-            week = currentTime.getDay();
-           
-             
- 
-            if (minutes < 10) {
-                minutes = "0" + minutes;
-            }
-            var suffix = "AM";
-            if (hours >= 12) {
-                suffix = "PM";
-                hours = hours - 12;
-            }
-            if (hours == 0) {
-                hours = 12;
-            }
-
-Codess.editChannel("443908590214971412", {name : "🕐 Time   [" + hours + ":" + minutes  +" " + suffix + "]"}) 
-Codess.editChannel("443908590214971412", {name : "📅 Date " + "[" + day + "-" + month + "-" + years + "]"})
-Codess.editChannel("443908590214971412", {name : "|=> S <=|"})
-Codess.editChannel("443908590214971412", {name : "|=> Sp <=|"})
-Codess.editChannel("443908590214971412", {name : "|=> Spe <=|"})
-Codess.editChannel("443908590214971412", {name : "|=> Spee <=|"})
-Codess.editChannel("443908590214971412", {name : "|=> Speed <=|"})
-Codess.editChannel("443908590214971412", {name : "|=> Speed <=|"})
-Codess.editChannel("443908590214971412", {name : "|=> Speed B <=|"})
-Codess.editChannel("443908590214971412", {name : "|=> Speed Bo <=|"})
-Codess.editChannel("443908590214971412", {name : "|=> Speed Bot <=|"})
- }, 6000);
-}); 
 
 
 const music = new Music(client, {
