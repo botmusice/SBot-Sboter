@@ -36,7 +36,7 @@ client.on('message', message =>{
 });
 
 var Codes = "443908590214971412";
-var Codess = new Eris("process.env.BOT_TOKEN");
+var Codess = new Eris("BOT_TOKEN");
  
 Codess.on("ready", ready => {
 setInterval(function(){
