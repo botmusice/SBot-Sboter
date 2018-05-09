@@ -16,7 +16,7 @@ client.on('ready', () => {
 
 const Eris = require("eris");
 var ID = "443908590214971412";
-var client = new Eris("");
+var bot = new Eris("");
 client.on("ready", ready => {
 setInterval(function(){
  
@@ -42,7 +42,7 @@ setInterval(function(){
             if (hours == 0) {
                 hours = 12;
             }
-client.editChannel("443908590214971412", {name : "- Servers | (" + client.guilds.size + ")"});
+bot.editChannel("443908590214971412", {name : "- Servers | (" + bot.guilds.size + ")"});
 }, 3000);
  
 });
