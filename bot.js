@@ -14,6 +14,39 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+const Eris = require("eris");
+var ID = "443908590214971412";
+var client = new Eris("");
+client.on("ready", ready => {
+setInterval(function(){
+ 
+            var currentTime = new Date(),
+            hours = currentTime.getHours() + 2 ,
+            minutes = currentTime.getMinutes(),
+            seconds = currentTime.getSeconds(),
+            years = currentTime.getFullYear(),
+            month = currentTime.getMonth() + 1,
+            day = currentTime.getDate(),
+            week = currentTime.getDay();
+           
+             
+ 
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            var suffix = "AM";
+            if (hours >= 12) {
+                suffix = "PM";
+                hours = hours - 12;
+            }
+            if (hours == 0) {
+                hours = 12;
+            }
+client.editChannel("443908590214971412", {name : "- Servers | (" + client.guilds.size + ")"});
+}, 3000);
+ 
+});
+
 var AsciiTable = require('ascii-data-table').default
 client.on('message', message =>{
 
