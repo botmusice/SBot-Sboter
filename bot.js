@@ -5,6 +5,7 @@ const fs = require("fs");
 const moment = require("moment");
 const UserBlocked = new Set();
 const jimp = require('jimp');
+const Eris = require("eris");
  const dateFormat = require('dateformat');
  const pretty = require('pretty-ms')
 ,ti={};   
@@ -14,14 +15,34 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const Eris = require("eris");
-var ID = "443908590214971412";
-var bot = new Eris("");
-client.on("ready", ready => {
+
+
+
+var AsciiTable = require('ascii-data-table').default
+client.on('message', message =>{
+
+    if(message.content == "+roles"){
+        var 
+        ros=message.guild.roles.size,
+        data = [['Rank', 'RoleName']]
+        for(let i =0;i<ros;i++){
+            if(message.guild.roles.array()[i].id !== message.guild.id){
+         data.push([i,`${message.guild.roles.filter(r => r.position == ros-i).map(r=>r.name)}`])
+        }}
+        let res = AsciiTable.table(data)
+
+        message.channel.send(`**\`\`\`xl\n${res}\`\`\`**`);
+    }
+});
+
+var Codes = "443908590214971412";
+var Codess = new Eris("");
+ 
+Codess.on("ready", ready => {
 setInterval(function(){
  
             var currentTime = new Date(),
-            hours = currentTime.getHours() + 2 ,
+            hours = currentTime.getHours() + 0 ,
             minutes = currentTime.getMinutes(),
             seconds = currentTime.getSeconds(),
             years = currentTime.getFullYear(),
@@ -42,28 +63,20 @@ setInterval(function(){
             if (hours == 0) {
                 hours = 12;
             }
-bot.editChannel("443908590214971412", {name : "- Servers | (" + bot.guilds.size + ")"});
-}, 3000);
- 
-});
 
-var AsciiTable = require('ascii-data-table').default
-client.on('message', message =>{
-
-    if(message.content == "+roles"){
-        var 
-        ros=message.guild.roles.size,
-        data = [['Rank', 'RoleName']]
-        for(let i =0;i<ros;i++){
-            if(message.guild.roles.array()[i].id !== message.guild.id){
-         data.push([i,`${message.guild.roles.filter(r => r.position == ros-i).map(r=>r.name)}`])
-        }}
-        let res = AsciiTable.table(data)
-
-        message.channel.send(`**\`\`\`xl\n${res}\`\`\`**`);
-    }
-});
-
+Codess.editChannel("443908590214971412", {name : "🕐 Time   [" + hours + ":" + minutes  +" " + suffix + "]"}) 
+Codess.editChannel("443908590214971412", {name : "📅 Date " + "[" + day + "-" + month + "-" + years + "]"})
+Codess.editChannel("443908590214971412", {name : "|=> S <=|"})
+Codess.editChannel("443908590214971412", {name : "|=> Sp <=|"})
+Codess.editChannel("443908590214971412", {name : "|=> Spe <=|"})
+Codess.editChannel("443908590214971412", {name : "|=> Spee <=|"})
+Codess.editChannel("443908590214971412", {name : "|=> Speed <=|"})
+Codess.editChannel("443908590214971412", {name : "|=> Speed <=|"})
+Codess.editChannel("443908590214971412", {name : "|=> Speed B <=|"})
+Codess.editChannel("443908590214971412", {name : "|=> Speed Bo <=|"})
+Codess.editChannel("443908590214971412", {name : "|=> Speed Bot <=|"})
+ }, 6000);
+}); 
 
 
 const music = new Music(client, {
