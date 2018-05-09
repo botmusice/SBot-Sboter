@@ -13,6 +13,7 @@
     "finalhandler": "^1.1.1",
     "fortnite": "^3.0.0",
     "fs": "^0.0.2",
+    "eris":"0.8.5",
     "ascii-data-table":"2.1.1",
     "array-sort": "1.0.0",
     "table": "4.0.3",
