@@ -53,7 +53,7 @@ client.on('guildMemberAdd', member => {
       });
 
 client.on('guildMemberAdd', member => {
-      let channel = member.guild.channels.find('name', '𝗖𝗛𝗔𝗧-شات');
+      let channel = member.guild.channels.find('name', '☆𝒞ℋ𝒜𝒯-ۛ-ּا̍ڷــڜــٰٱ̍ٺ☆');
       let xsattt = member.user.avatarURL
         if (!channel) return; 
       let embed = new Discord.RichEmbed()
