@@ -25,6 +25,17 @@ if (message.content.startsWith(prefix + 'perm')) {
 });
 
 client.on('guildMemberAdd', member => {
+      let channel = member.guild.channels.find('name', 'chat');
+      let xsattt = member.user.avatarURL
+        if (!channel) return; 
+      let embed = new Discord.RichEmbed()
+          .setColor('RANDOM')
+          .setThumbnail(xsattt)
+          .addField(`Welcome To Server \*\*\_\_${member.guild.name}\_\_\*\*`,`『【<@${member.id}>】』`)
+        channel.sendEmbed(embed);
+      });
+
+client.on('guildMemberAdd', member => {
       let channel = member.guild.channels.find('name', '𝗖𝗛𝗔𝗧-شات');
       let xsattt = member.user.avatarURL
         if (!channel) return; 
