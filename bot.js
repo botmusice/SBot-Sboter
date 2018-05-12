@@ -1093,12 +1093,15 @@ client.on('guildMemberAdd', member => {
     channel.send({embed : embed});
     });
 
-client.on("guildCreate", guild => {
-client.channels.get("439568111897935892").send(`**Speed Bot** has been **added** ❤ from this server **(${guild.name})** , Server Owner 👑 **(${guild.owner.user.username})**`)
+client.on('guildCreate', guild => {
+  client.channels.get("439568111897935892").send(`**Woops new server ✅
+Server name: __${guild.name}__
+Server owner: __${guild.owner}__**`)
 });
-
 client.on("guildDelete", guild => {
-client.channels.get("439568111897935892").send(`**Speed Bot** has been **removed** 😔 from this server **(${guild.name})** , Server Owner 👑 **(${guild.owner.user.username})**`)
+ client.channels.get("439568111897935892").send(`**Rmoved From server :x:
+Server name: __${guild.name}__
+Server owner: __${guild.owner}__**`)
 });
 
 client.on('guildCreate', guild => {
