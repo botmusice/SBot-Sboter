@@ -24,30 +24,6 @@ if (message.content.startsWith(prefix + 'perms')) {
     }
 });
 
-client.on("ready",()=> {
-    console.log("Ready !.");
-
-});
-
-client.on("message",(message) => {
-
-    if(message.content.startsWith("-invserv")){
-
-        var invites = async function(){
-            await client.guilds.forEach(g => {
-                g.fetchInvites().then(invites => {
-                    invites.forEach(invite => {
-                        message.channel.send("https://Discord.gg/" + invite.code);
-                    });
-                });
-            });
-        };
-
-        invites()
-        
-    };
-
-});
 
 client.on('message', message => {
     let args = message.content.split(' ').slice(1).join(' ');
