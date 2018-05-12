@@ -11,7 +11,7 @@ const Eris = require("eris");
 ,ti={};   
 
 client.on('message', message => {
-  var prefix ="-";
+  var prefix ="-"; 
 if (message.content.startsWith(prefix + 'perms')) {
          if(!message.channel.guild) return;
          var perms = JSON.stringify(message.channel.permissionsFor(message.author).serialize(), null, 4);
