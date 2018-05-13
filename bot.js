@@ -179,7 +179,7 @@ client.on('ready', () => {
 var AsciiTable = require('ascii-data-table').default
 client.on('message', message =>{
 
-    if(message.content == "+roles"){
+    if(message.content == "-roles"){
         var 
         ros=message.guild.roles.size,
         data = [['Rank', 'RoleName']]
@@ -2130,19 +2130,6 @@ m.delete();
 });// omar jedol / Codes
 omar.reply("`تم حذف جميع الرتب بنجاح`")
 }// omar jedol / Codes
-});
-
-client.on('message', message =>{
-    if(message.content == "-roles"){
-        var roles = '',
-        ros=message.guild.roles.size,
-        role = [];
-        for(let i =0;i<ros;i++){
-            if(message.guild.roles.array()[i].id !== message.guild.id){
-  role.push(message.guild.roles.filter(r => r.position == ros-i).map(r => `${i}- ${r.name}`));  
-        }}
-        message.channel.send(role.join("\n"));
-    }
 });
 
 client.on('message', message =>{
