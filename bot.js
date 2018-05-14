@@ -31,7 +31,7 @@ if (message.content.startsWith(prefix + 'set-avatar')) {
 if (message.author.id !== 'اي دي صاحب البوت') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
 client.user.setAvatar(argresult);
     message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
-} else
+} 
 });
  client.on('message', message => {
 	 var prefix = "-";
