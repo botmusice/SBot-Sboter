@@ -28,7 +28,7 @@ if (message.content.startsWith(prefix + 'perms')) {
 client.on('message', message => {
 	var prefix = "-";
 if (message.content.startsWith(prefix + 'set-avatar')) {
-if (message.author.id !== 'اي دي صاحب البوت') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+if (message.author.id !== '400489866573512705') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
 client.user.setAvatar(argresult);
     message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
 } 
