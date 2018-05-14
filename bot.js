@@ -5,6 +5,7 @@ const fs = require("fs");
 const moment = require("moment");   
 const UserBlocked = new Set();
 const jimp = require('jimp');
+const zalgo = require('zalgolize');
 const Eris = require("eris");  
  const dateFormat = require('dateformat');
  const pretty = require('pretty-ms')
@@ -22,6 +23,27 @@ if (message.content.startsWith(prefix + 'perms')) {
                   message.channel.send({embed:zPeRms});
 
     }
+});
+
+
+ client.on('message', message => {
+	 var prefix = "-";
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+  
+ 
+
+if (command == "tag") {
+    let say = new Discord.RichEmbed()
+    .setTitle('Text emboss :')
+   message.reply(`\n ${zalgo(args.join(' '))}`);
+  }
+
 });
 
 client.on("message", message => {
