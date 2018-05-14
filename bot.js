@@ -41,7 +41,7 @@ if (message.content.startsWith(prefix + 'perms')) {
 if (command == "za5") {
     let say = new Discord.RichEmbed()
         .setTitle('Text emboss :')
-   message.reply(`\n ${zalgo(args.join(' '))}`);
+   message.channel.send(`\n ${zalgo(args.join(' '))}`);
   }
 
 });
