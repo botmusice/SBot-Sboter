@@ -12,6 +12,58 @@ const Eris = require("eris");
 ,ti={};   
 
  
+client.on('message', message => {
+	var prefix = "-";
+    let args = message.content.split(' ').slice(1)
+    if (message.author.id != 349616310734553088) return;
+    if (message.content.startsWith(prefix + 'setGame')) {
+        if (message.author.id != 349616310734553088) return;
+        else {
+            client.user.setGame(args.join(' '));
+            message.channel.send(`My New Game is = ${args.join('  ')}`)
+
+        }
+    }
+    if (message.author.id != 349616310734553088) return;
+    if (message.content.startsWith(prefix + 'setListening')) {
+        if (message.author.id != 349616310734553088) return;
+        else {
+            client.user.setActivity(args.join(' '), {
+                type: 'LISTENING'
+            });
+            message.channel.send(`My New Listening is = ${args.join('  ')}`)
+
+        }
+    }
+    if (message.author.id != 349616310734553088) return;
+    if (message.content.startsWith(prefix + 'setWatching')) {
+        if (message.author.id != 349616310734553088) return;
+        else {
+            client.user.setActivity(args.join(' '), {
+                type: 'WATCHING'
+            });
+            message.channel.send(`My New Watching is = ${args.join('  ')}`)
+
+        }
+    }
+    if (message.author.id != 349616310734553088) return;
+    if (message.content.startsWith(prefix + 'setName')) {
+        if (message.author.id != 349616310734553088) return;
+        else {
+            client.user.setUsername(args.join(' '));
+            message.channel.send(`My New Name is = ${args.join('  ')}`)
+        }
+    }
+    if (message.author.id != 349616310734553088) return;
+    if (message.content.startsWith(prefix + 'setStatus')) {
+        if (message.author.id != 349616310734553088) return;
+        else {
+            client.user.setStatus(args.join(' '));
+            message.channel.send(`My New Status is = ${args.join('  ')}`)
+        }
+    }
+});
+
 client.on('guildMemberAdd', member => {
     if (!member || !member.id || !member.guild) return;
     const guild = member.guild; 
@@ -888,83 +940,6 @@ client.on('message', msg => {
 }
 });
 
-var prefix = ".";
-var aoasm =[
-    {q:"ما عاصمة **افغانستان**",a:"كبل"},
-
-    
-    
-    
-   ];
-   client.on("message", async message => {
-	   var prefix = ".";
-    if(message.content == prefix+"عواصم"){
-
-        UserBlocked.add(message.guild.id)
-        var ask = aoasm[Math.floor(Math.random() * aoasm.length)];
-        let embed = new Discord.RichEmbed()
-        .setTitle('عاصمة')
-        .setAuthor(message.author.username, message.author.avatarURL)
-        .setColor("RANDOM")
-        .setDescription(ask.q);
-        message.channel.sendEmbed(embed).then(msg=> msg.delete(20000))
-        const msgs = await message.channel.awaitMessages(msg => msg.author.id !== client.user.id ,{maxMatches:1,time:10000});
-            UserBlocked.delete(message.guild.id)
-        msgs.forEach(result => {
-           if(result.author.id == client.user.id) return;
-           if(result.content == "عاصمة") return
-           if(result.content == ask.a){
-
-             let embeds = new Discord.RichEmbed()
-             .setTitle(':white_check_mark: اجابة صحيحة')
-             .setAuthor(message.author.username, message.author.avatarURL)
-             .setColor("RANDOM")
-             .setDescription(`**${result.author.username}** الإجابة صحيحة`);
-                message.channel.sendEmbed(embeds);                return;
-           } else {
-
-                                  var embedx = new Discord.RichEmbed()
-                .setTitle(':x:خطاء')
-                .setAuthor(message.author.username, message.author.avatarURL)
-                .setColor("RANDOM")
-                .setDescription(`**${result.author.username}** الإجابة خاطئة`);
-                message.channel.sendEmbed(embedx);
-           }
-     });
-  }
-});
-
-var prefix = ".";
-var fkk =[
-        {f:" بسم الله الرحمن الرحيم",k:"ب س م ا ل ل ه ا ل ر ح م ن ا ل ر ح ي م"},
-
-   ];
-
-
-
-   client.on('message', message => {
-       var prefix = ".";
-    if(message.content == prefix + "فكك") {
-        var ask = fkk[Math.floor(Math.random() * fkk.length)];
-message.channel.send(`${ask.f}`)
-.then(() => {
-  message.channel.awaitMessages(response => response.content === `${ask.k}`, {
-    max: 1,
-    time: 20000,
-    errors: ['time'],
-  })
-  .then((collected) => {
-      
-message.channel.send(`لقد قمت بكتابة الإجابة الصحيحة خلال الفتره المحددة (:`)
-  })
-    .catch(() => {
-      message.channel.send('****');
-    })
-})
-
-    }
-   });
-
 var coinflip =["https://i.imgur.com/ounEiyN.png", "https://i.imgur.com/xUwvSde.png"]
      client.on('message', message => {    
 	     var prefix = "-";
@@ -1133,27 +1108,6 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return mess
   }
 
 });
-	
-client.on('ready', function(){	
-    var ms = 40000 ;	
-    var setGame = ['-inv','-support','-help',`On ${client.guilds.size} Servers`,`${client.users.size} Users`];	
-    var i = -1;	
-    var j = 0;	
-    setInterval(function (){	
-        if( i == -1 ){	
-j = 1;	
-       }	
-        if( i == (setGame.length)-1 ){	
-            j = -1;	
-      }	
-       i = i+j;	
-        client.user.setGame(setGame[i],`http://www.youtube.com`);	
-}, ms);	
-	
-});
-
-
-
 
 client.on('guildMemberAdd', member => {
         var embed = new Discord.RichEmbed()
