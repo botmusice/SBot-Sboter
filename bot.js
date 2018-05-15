@@ -17,7 +17,7 @@ client.on('guildMemberAdd', member => {
     const guild = member.guild;
 	
     const channel = member.guild.channels.find('name', 'bot-hell');
-    if (!channel) return;
+    if (!channel) return; 
     let memberavatar = member.user.avatarURL
     const fromNow = moment(member.user.createdTimestamp).fromNow();
     const isNew = (new Date() - member.user.createdTimestamp) < 900000 ? '🆕' : '';
