@@ -866,29 +866,26 @@ client.on('message', message => {
     }
 });
 
-client.on("message", message => { 
-var prefix = "-";
-  let args = message.content.split(" ").slice(1);
-if (message.content.startsWith((prefix) + 'report')) {
-      let user = message.mentions.users.first();
-      let reason = args.slice(1).join(' ');
-      let modlog = client.channels.find('name', 'report');
-      if (!reason) return message.reply('**ضع سبباً مقنعاً**');
-        if (message.mentions.users.size < 1) return message.reply('**يجب عليك عمل منشن للعضو المراد الابلاغ عليه**').catch(console.error);
-
-  if (!modlog) return message.reply('**لا يوجد روم بأسم report**');
-  const embed = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .addField('نوع الرسالة:', 'Report')
-    .addField('المراد الابلاغ عليه:', `${user.username}#${user.discriminator} (${user.id}`)
-    .addField('صاحب الابلاغ:', `${message.author.username}#${message.author.discriminator}`)
-    .addField('السبب', reason);
-    message.delete()
-    return client.channels.get(modlog.id).sendEmbed(embed).catch(console.error);
-        }
+client.on('message', msg => { 
+if (msg.content.startsWith(`%report`)) {
+// تعريف الارجس
+   let args = msg.content.split(" ").slice(1);
+// لو ما منشن احد يرد عيله
+  if (!msg.mentions.members.first()) return msg.reply(`يجب عليك منشن شخص`)
+// لو ما كتب تبليغ بيقوله اكتب تبليغ
+  if (!args[1]) return msg.reply(`امممم .. اكتب تبليغك`)
+// استبدل <الروم> بأسم الروم حقك
+  if (msg.guild.channels.find('name', '<الروم>')) {
+// استبدل هنا بعد
+    msg.guild.channels.find('name', '<الروم>').send(`
+  تبليغ على : ${msg.mentions.members.first()}
+  بلغ عليه من قبل : ${msg.member}
+  في روم : ${msg.channel.name}
+  السبب : **${args.join(" ").split(msg.mentions.members.first()).slice(' ')}**
+  `)
+  }
+}
 });
-
 
  client.on('message', message => {
 	 if(!message.channel.guild) return;
