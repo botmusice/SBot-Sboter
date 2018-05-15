@@ -11,18 +11,6 @@ const Eris = require("eris");
  const pretty = require('pretty-ms')
 ,ti={};   
 
-    client.on("message", (message) => {
-	    var prefix ="-";
-  if(!message.content.startsWith(prefix)) return;;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-if (message.author.bot) return; 
-  if (message.content.startsWith(prefix + 'setavatar')) {
-  if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('`ADMINISTRATOR` للأسف هذه الخاصية تحتاج الى ').then(msg => msg.delete(6000))
-    client.user.setAvatar(argresult);
-    message.channel.send(`**اذا لم يتم تغير الصوره انتضر بعد 60 دقيقه**  \`${argresult}\` : تم تغير الصوره الى `).then(msg => msg.delete(6000))
-  }
-});
 
 client.on('guildMemberAdd', member => {
     if (!member || !member.id || !member.guild) return;
