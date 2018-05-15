@@ -14,7 +14,7 @@ const Eris = require("eris");
  
 client.on('guildMemberAdd', member => {
     if (!member || !member.id || !member.guild) return;
-    const guild = member.guild;
+    const guild = member.guild; 
 	
     const channel = member.guild.channels.find('name', 'bot-hell');
     if (!channel) return; 
