@@ -104,7 +104,7 @@ if (message.content.startsWith(prefix + 'perms')) {
 if (message.author.bot) return; 
   if (message.content.startsWith(prefix + 'setavatar')) {
   if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('`ADMINISTRATOR` للأسف هذه الخاصية تحتاج الى ').then(msg => msg.delete(6000))
-    bot.user.setAvatar(argresult);
+    client.user.setAvatar(argresult);
     message.channel.send(`**اذا لم يتم تغير الصوره انتضر بعد 60 دقيقه**  \`${argresult}\` : تم تغير الصوره الى `).then(msg => msg.delete(6000))
   }
 });
