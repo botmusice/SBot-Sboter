@@ -27,7 +27,7 @@ client.on('guildMemberAdd', member => {
 	   .setThumbnail(memberavatar)
        .setColor('GREEN')
        .setDescription(`📥 <@${member.user.id}> **دخل السيرفر**\n\n`)
-       .setTimestamp();
+       .setTimestamp(); 
      channel.send({embed:embed});
 });
 // لوق خروج اللاعبين
