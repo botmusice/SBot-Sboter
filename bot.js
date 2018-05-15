@@ -11,7 +11,7 @@ const Eris = require("eris");
  const pretty = require('pretty-ms')
 ,ti={};   
 
-
+ 
 client.on('guildMemberAdd', member => {
     if (!member || !member.id || !member.guild) return;
     const guild = member.guild;
