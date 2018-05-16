@@ -10,52 +10,6 @@ const Eris = require("eris");
  const dateFormat = require('dateformat');
  const pretty = require('pretty-ms')
 ,ti={};   
-
-client.on("channelCreate",  ec => {//By ᵒᶜ|♪мσнαммєɒ♪ ♩#0885
-  const channel = ec.guild.channels.find("name", "bot-hell")//By Official Coding
-  if(channel) {//By Official Coding
-  var embed = new Discord.RichEmbed()//By Official Coding
-  .setTitle(ec.guild.name,ec.guild.iconURL)//By Official Coding
-  .setDescription(`***Channel Created :pencil: Name :*** #${ec.name}`)//By Official Coding
-  .setColor(`RANDOM`)//By Official Coding
-  channel.sendEmbed(embed)//By Official Coding
-  }//By Official Coding
-  });
-
-client.on("emojiCreate",  ec => {//By ᵒᶜ|♪мσнαммєɒ♪ ♩#0885
-  const channel = ec.guild.channels.find("name", "bot-hell")//By Official Coding
-  if(channel) {//By Official Coding
-  var embed = new Discord.RichEmbed()//By Official Coding
-  .setTitle(`** -تم وضع ايموجي**`)//By Official Coding
-  .setDescription(`***هناك ايموجي تم وضعه في السيرفر ***\n\n➡️ <:${ec.name}:${ec.id}> ⬅️`)//By Official Coding
-  .setColor(`RANDOM`)//By Official Coding
-  channel.sendEmbed(embed)//By Official Coding
-  }//By Official Coding
-  });//By Official Coding
-  //هذا التعديل
-  client.on("emojiUpdate",  (ec,gt) => {//By ᵒᶜ|♪мσнαммєɒ♪ ♩#0885
-    const channel = ec.guild.channels.find("name", "bot-hell")//By Official Coding
-    if(channel) {//By Official Coding
-    var embed = new Discord.RichEmbed()
-    .setTitle(`** -تم تعديل اسم ايموجي**`)//By Official Coding
-    .setDescription(`***هناك ايموجي تم تعديله في السيرفر ***\n\n<:${ec.name}:${ec.id}>=**الاسم القديم:${ec.name}**\n\n<:${ec.name}:${ec.id}>=**الاسم الجديد:${gt.name}**`)//By Official Coding
-    .setColor(`RANDOM`)//By Official Coding
-    channel.sendEmbed(embed)//By Official Coding
-    }//By Official Coding
-    });//By Official Coding
-   
- //هذا الحذف
-    client.on("emojiDelete",  ec => {//By ᵒᶜ|♪мσнαммєɒ♪ ♩#0885
-      const channel = ec.guild.channels.find("name", "bot-hell")//By Official Coding
-      if(channel) {//By Official Coding
-      var embed = new Discord.RichEmbed()//By Official Coding
-      .setTitle(`** -تم حذف ايموجي**`)//By Official Coding
-      .setDescription(`***هناك ايموجي تم حذفه من السيرفر ***\n\n***كان اسمه:***${ec.name} `)//By Official Coding
-      .setColor(`RANDOM`)//By Official Coding
-      channel.sendEmbed(embed)//By Official Coding
-      }//By Official Coding
-      });//By Official Coding
-
  
 client.on('message', message => {
 	var prefix = "-";
