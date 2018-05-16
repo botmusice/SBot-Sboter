@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const Music = require('discord.js-musicbot-addon');
 const client = new Discord.Client(); 
 const fs = require("fs"); 
 const moment = require("moment");   
@@ -226,36 +225,7 @@ client.on('message', message => {
     }
     });
 
-client.on('message', message => {
-if(message.content == '-sserverss') {
-         if(!message.author.id === '349616310734553088') return;
-var gimg;
-var gname;
-var gmemb;
-var gbots;
-var groles;
-var servers = client.guilds;
-servers.forEach((g)=>{
-gname = g.name;
-gimg = g.iconURL;
-gmemb = g.members.size;
-gbots = g.members.filter(m=>m.bot).size;
-groles = g.roles.map(r=> {return r.name});
-let serv = new Discord.RichEmbed()
-.setAuthor(gname,gimg)
-.setThumbnail(gimg)
-.addField('Server bots',gbots)
-.addField('Server Member Count',gmemb = g.members.size)
-.setColor('RANDOM')
-message.channel.send(`
-Server Name : **${gname}**
-Server MemberCount : **${gmemb} **
-        
-        `);
-      message.channel.sendEmbed(serv);
-}) 
-}
-});
+
 
 const minecraft = [  'ما معنى تطويرة؛ sil ktoch؟',  'من هوة اللذي قد انهى سلسلة سيرفر مايت كرافت؟',  'ماهو الوحش اللذي يرسبن في معبد البحر؟',  'من افضل يوتيوبر ينزل شروحات)ردستونية؛عامة',  'ماذا يفعل لك الهيروبراين؟',  'ماهو الشئ اللذي يمكن مكاثرة الفلجر فيه؟',  'من هو اندر ثاني شئ في ماين كرافت',  'ماهو الامر اللذي يعطينا كوماند بلوك؟',  'كم من الوقت يستغرق اليوم العادي في ماين كرافت؟',  'هل لليردستون اهمية كبيرة في ماين كرافت؟',  'اندر اور',  'مطور ماين كرافت السابق',  'اصغر موب في ماين كرافت',  'كيف تصنع البوق',  'في اي ارتفاع تلقى الدايموند',  'موب مستحيل تضربة بالبو (السهم)',  'كم نحتاج من Glowstone Dust لكي نصنع بلكة كاملة منه',  'كم نحتاج حبة ايرون لصنع سكة الحديد (Track)',  'كم عدد قلوب البقرة',  'ن ماذا يخاف الكريبر',  'يشتهر الاندرمان ب…..?',  'كم عدد قلوب الايرون قولم',  'كم ضربة تضرب الدجاجة و تموت',  'كم بلوكة تحتاج بوابة النذر',  'كم بلوكة تحتاج بوابة الاند',  'كم تحتاج الفرن ايروون عشان تصنعها',  'كيف تصنع كرافتنق تيبل',  'كم ياخذ وقت النبات عشان يكبر',  'كم قلوب ستيفي',  'كم قلوب الاندر مان',  'هل الاندر مان يضرب',  'هل الزومبي غبي ؟ و في اي تحديث ؟',  'ماهو الافضل للتسخين الافا او فحم ؟',  'ماهو شئ الذي اقوى من الاوبسيدين ؟',]
 client.on('message', message => {
@@ -325,32 +295,6 @@ client.on('message', message =>{
     }
 });
  
-
-
-const music = new Music(client, {
-    prefix: "-", 
-    youtubeKey: 'AIzaSyApvbcgvYRGulf1I1Ffjfhr2K-S6TX0e9w',
-    global: false, 
-    maxQueueSize: 50,        // Maximum queue size of 25.
-    playCmd: 'play',        // Sets the name for the 'play' command.
-    playAlts: ["play", 'paly'],
-    volumeCmd: 'vol',     // Sets the name for the 'volume' command.
-    thumbnailType: 'high',
-    leaveCmd: 'leave',      // Sets the name for the 'leave' command.
-    anyoneCanSkip: true, 
-    disableLoop: false,
-    searchCmd: 'search',
-    requesterName: true,
-    inlineEmbeds: true,     
-    queueCmd: 'queue',
-    queueAlts: ['queue', 'queueue'],
-    pauseCmd: 'pause',
-    resumeCmd: 'resume',
-    skipCmd: 'skip',
-    skipAlts: ["skip", "skipp"],
-    loopCmd: 'loop',
-    enableQueueStat: true,
-  });
 client.on('ready', () => {
 	console.log('I am ready!'); 
   });
