@@ -18,7 +18,6 @@ const queue = new Map();
 
 client.on('warn', console.warn);
 client.on('error', console.error);
-client.on('ready', () => console.log('Yo this ready!'));
 
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
@@ -559,6 +558,8 @@ if (message.content.startsWith(prefix + 'help-public')) {
                         
 💎-server 『معلومات عن السيرفر』  
 
+💎-za5 『لزخرف الكلمات او الجمل』 
+
 💎-perms 『لعرض برمشناتك في السيرفر الي انت فيه』
 
 💎-uptime 『يعرض لك صار للبوت كم شغال』
@@ -631,7 +632,7 @@ if (message.content.startsWith(prefix + 'help-music')) {
 
 :musical_note: -play <name> | لتشغيل الموسيقى 
 
-:musical_note: -leave | لتوقيف الموسيقى وخروج البوت من الرووم 
+:musical_note: -stope | لتوقيف الموسيقى وخروج البوت من الرووم 
 
 :musical_note: -skip | لتخطي الموسيقى
  
@@ -641,7 +642,9 @@ if (message.content.startsWith(prefix + 'help-music')) {
 
 :musical_note: -resume | تكميل الموسيقى 
 
-:musical_note: -loop | لاعادة الموسيقى بوحدها 
+:musical_note: -queue | لمعرفة الموسيقى الاخرى الي اخترتها
+
+:musical_note: -np | لمعرفة اي موسيقى شغالة 
 
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 
