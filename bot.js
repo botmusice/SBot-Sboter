@@ -15,7 +15,7 @@ client.on("emojiCreate",  ec => {//By ᵒᶜ|♪мσнαммєɒ♪ ♩#0885
   const channel = ec.guild.channels.find("name", "log")//By Official Coding
   if(channel) {//By Official Coding
   var embed = new Discord.RichEmbed()//By Official Coding
-  .setThumbnail(`https://cdn.discordapp.com/attachments/426840965613879297/440134513960550401/ffdss.png`)//By Official Coding
+  .setAuthor(`${message.author.tag}`, message.author.avatarURL)//By Official Coding
   .setTitle(`** -تم وضع ايموجي**`)//By Official Coding
   .setDescription(`***هناك ايموجي تم وضعه في السيرفر ***\n\n➡️ <:${ec.name}:${ec.id}> ⬅️`)//By Official Coding
   .setColor(`RANDOM`)//By Official Coding
@@ -27,7 +27,7 @@ client.on("emojiCreate",  ec => {//By ᵒᶜ|♪мσнαммєɒ♪ ♩#0885
     const channel = ec.guild.channels.find("name", "bot-hell")//By Official Coding
     if(channel) {//By Official Coding
     var embed = new Discord.RichEmbed()//By Official Coding
-    .setThumbnail(`https://cdn.discordapp.com/attachments/426840965613879297/440134513960550401/ffdss.png`)//By Official Coding
+    .setAuthor(`${message.author.tag}`, message.author.avatarURL)//By Official Coding
     .setTitle(`** -تم تعديل اسم ايموجي**`)//By Official Coding
     .setDescription(`***هناك ايموجي تم تعديله في السيرفر ***\n\n<:${ec.name}:${ec.id}>=**الاسم القديم:${ec.name}**\n\n<:${ec.name}:${ec.id}>=**الاسم الجديد:${gt.name}**`)//By Official Coding
     .setColor(`RANDOM`)//By Official Coding
@@ -40,7 +40,7 @@ client.on("emojiCreate",  ec => {//By ᵒᶜ|♪мσнαммєɒ♪ ♩#0885
       const channel = ec.guild.channels.find("name", "bot-hell")//By Official Coding
       if(channel) {//By Official Coding
       var embed = new Discord.RichEmbed()//By Official Coding
-      .setThumbnail(`https://cdn.discordapp.com/attachments/426840965613879297/440134513960550401/ffdss.png`)//By Official Coding
+      .setAuthor(`${message.author.tag}`, message.author.avatarURL)//By Official Coding
       .setTitle(`** -تم حذف ايموجي**`)//By Official Coding
       .setDescription(`***هناك ايموجي تم حذفه من السيرفر ***\n\n***كان اسمه:***${ec.name} `)//By Official Coding
       .setColor(`RANDOM`)//By Official Coding
