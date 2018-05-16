@@ -15,8 +15,8 @@ client.on("channelCreate",  ec => {//By ᵒᶜ|♪мσнαммєɒ♪ ♩#0885
   const channel = ec.guild.channels.find("name", "bot-hell")//By Official Coding
   if(channel) {//By Official Coding
   var embed = new Discord.RichEmbed()//By Official Coding
-  .setTitle(`message.guild.name,message.guild.iconURL`)//By Official Coding
-  .setDescription(`***Channel Created :pencil: Name :***\n\n ${ec.name}`)//By Official Coding
+  .setTitle('message.guild.name,message.guild.iconURL')//By Official Coding
+  .setDescription(`***Channel Created :pencil: Name :***\n\n **${ec.name}**`)//By Official Coding
   .setColor(`RANDOM`)//By Official Coding
   channel.sendEmbed(embed)//By Official Coding
   }//By Official Coding
