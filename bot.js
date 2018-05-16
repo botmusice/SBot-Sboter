@@ -303,17 +303,6 @@ client.on('guildMemberAdd', member => {
         channel.sendEmbed(embed);
       });
 
-client.on('guildMemberAdd', member => {
-      let channel = member.guild.channels.find('name', '𝐂𝐇𝐀𝐓');
-      let xsattt = member.user.avatarURL
-        if (!channel) return; 
-      let embed = new Discord.RichEmbed()
-          .setColor('RANDOM')
-          .setThumbnail(xsattt)
-          .addField(`Welcome To Server \*\*\_\_${member.guild.name}\_\_\*\*`,`『【<@${member.id}>】』`)
-        channel.sendEmbed(embed);
-      });
-
 
 client.on('ready', () => { 
   console.log(`Logged in as ${client.user.tag}!`);
@@ -1117,12 +1106,12 @@ client.on('guildMemberAdd', member => {
     });
 
 client.on('guildCreate', guild => {
-  client.channels.get("439568111897935892").send(`**Woops new server ✅
+  client.channels.get("446261493684502529").send(`**Woops new server ✅
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__**`)
 });
 client.on("guildDelete", guild => {
- client.channels.get("439568111897935892").send(`**Rmoved From server :x:
+ client.channels.get("446261493684502529").send(`**Rmoved From server :x:
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__**`)
 });
