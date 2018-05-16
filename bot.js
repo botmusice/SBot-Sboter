@@ -16,7 +16,7 @@ client.on("channelCreate",  ec => {//By ᵒᶜ|♪мσнαммєɒ♪ ♩#0885
   if(channel) {//By Official Coding
   var embed = new Discord.RichEmbed()//By Official Coding
   .setTitle(`**تم انشائ رووم**`)//By Official Coding
-  .setDescription(`***اسمها ***\n\n :pencil: <#${ec.name}`)//By Official Coding
+  .setDescription(`***اسمها ***\n\n :pencil: #${ec.name}`)//By Official Coding
   .setColor(`RANDOM`)//By Official Coding
   channel.sendEmbed(embed)//By Official Coding
   }//By Official Coding
