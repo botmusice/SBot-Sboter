@@ -16,7 +16,7 @@ client.on("channelCreate",  ec => {//By ᵒᶜ|♪мσнαммєɒ♪ ♩#0885
   if(channel) {//By Official Coding
   var embed = new Discord.RichEmbed()//By Official Coding
   .setTitle(ec.guild.name,ec.guild.iconURL)//By Official Coding
-  .setDescription(`***Channel Created :pencil: Name :***\n\n **${ec.name}**`)//By Official Coding
+  .setDescription(`***Channel Created :pencil: Name :*** #${ec.name}`)//By Official Coding
   .setColor(`RANDOM`)//By Official Coding
   channel.sendEmbed(embed)//By Official Coding
   }//By Official Coding
