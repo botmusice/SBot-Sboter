@@ -316,12 +316,11 @@ const type = [
 ];
  
 client.on('message', message => {
- var prefix = "-";
 if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
   if(!message.guild) return;
-    let id = message.author.id,prefix="#!";
+    let id = message.author.id,prefix="-";
     if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
@@ -372,7 +371,7 @@ msg.channel.send(embed).then(() => {
 }
 });
 client.on('message', message => {
-	var prfix = "-";
+	var prefix = "-";
 if (message.content.startsWith(prefix + 'points')) {
     if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
     let userData = points[message.author.id];
