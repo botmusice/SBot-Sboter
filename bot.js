@@ -255,106 +255,88 @@ client.on('message', message => {
     }
 });
 
-let logs = {}
-client.on('message', message => {
-	var prefix ="-";
-if(!message.guild) return;
-if(message.author.bot)return;
-if (!logs[message.guild.id]) logs[message.guild.id] = {
-welc: 'logs'
-};
-if(message.content.startsWith(prefix+"setlog")) {
-        if (message.author.bot) return;
-        if (message.author.id === client.user.id) return;
-          if(!message.channel.guild) return;  
-        if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`<:Permission:443373822943690754> You Need Permission`).then(msg => {msg.delete(5000)})
-        let args = message.content.split(' ').slice(1).join(' ')
-        if(!args) return message.channel.send(`Please Typy The Room Name`).then(msg => {msg.delete(5000)})
-        if(args.length > 100) return message.channel.send(`Room name must not exceed 100 characters`).then(msg => {msg.delete(5000)})
-        let channel = message.client.channels.find('name', args);
-        if (!channel) return message.channel.send(`Check the room name`).then(msg => {msg.delete(5000)})
-        logs[message.guild.id].chattt = args
-        message.channel.send(`The Server Logs Has Been Changed To \`${args}\``).then(msg => {msg.delete(5000)})
-    }
- 
- 
-});
 client.on('guildMemberAdd', member => {
-     if(!logs[member.guild.id]) logs[member.guild.id] = {
-  chattt: 'logs'
-  }
     if (!member || !member.id || !member.guild) return;
-    const guild = member.guild;
-   
-    const channel = (member.guild.channels.find(`name`, logs[member.guild.id].chattt))
-    if (!channel) return;
+    const guild = member.guild; 
+	
+    const channel = member.guild.channels.find('name', 'bot-hell');
+    if (!channel) return; 
     let memberavatar = member.user.avatarURL
     const fromNow = moment(member.user.createdTimestamp).fromNow();
     const isNew = (new Date() - member.user.createdTimestamp) < 900000 ? '🆕' : '';
-   
+    
     let embed = new Discord.RichEmbed()
        .setAuthor(`${member.user.tag}`, member.user.avatarURL)
-       .setThumbnail(memberavatar)
-       .setColor('#000000')
-       .setDescription(`📥 <@${member.user.id}> **Joined the server**\n\n **Created:** \n \`${fromNow} ${isNew}\``)
-       .setFooter("Lag_Bot : log", 'https://cdn.discordapp.com/attachments/421915694863745025/432096463611232256/3.png')
-       .setTimestamp();
+	   .setThumbnail(memberavatar)
+       .setColor('GREEN')
+       .setDescription(`📥 <@${member.user.id}> **دخل السيرفر**\n\n`)
+       .setTimestamp(); 
      channel.send({embed:embed});
 });
+// لوق خروج اللاعبين
 client.on('guildMemberRemove', member => {
-   if(!logs[member.guild.id]) logs[member.guild.id] = {
-  chattt: 'logs'
-  }
     if (!member || !member.id || !member.guild) return;
     const guild = member.guild;
-   
-    const channel = (member.guild.channels.find(`name`, logs[member.guild.id].chattt))
+	
+    const channel = member.guild.channels.find('name', 'bot-hell');
     if (!channel) return;
     let memberavatar = member.user.avatarURL
     const fromNow = moment(member.joinedTimestamp).fromNow();
-   
+    
     let embed = new Discord.RichEmbed()
        .setAuthor(`${member.user.tag}`, member.user.avatarURL)
-       .setThumbnail(memberavatar)
-       .setColor('#000000')
-       .setDescription(`📤 <@${member.user.id}> **left the server**\n\n **Had joined:** \n \`${fromNow}\``)
+	   .setThumbnail(memberavatar)
+       .setColor('RED')
+       .setDescription(`📤 <@${member.user.id}> **خرج من السيرفر**\n\n`)
        .setTimestamp();
      channel.send({embed:embed});
 });
- 
+
+// لوق الرسائل المنحذفه
 client.on('messageDelete', message => {
-   if(!logs[message.guild.id]) logs[message.guild.id] = {
-  chattt: 'logs'
-  }
     if (!message || !message.id || !message.content || !message.guild || message.author.bot) return;
-    const channel = (message.guild.channels.find(`name`, logs[message.guild.id].chattt))
+    const channel = message.guild.channels.find('name', 'bot-hell');
     if (!channel) return;
-   
+    
     let embed = new Discord.RichEmbed()
        .setAuthor(`${message.author.tag}`, message.author.avatarURL)
-       .setColor('#000000')
-       .setDescription(`🗑️ **Message sent by <@${message.author.id}> deleted in** <#${message.channel.id}>\n\n \`\`\`${message.cleanContent}\`\`\``)
+       .setColor('BLACK')
+       .setDescription(`🗑️ **حذف رساله**
+**ارسلها <@${message.author.id}>                                                                                                                        تم حذفها في شات** <#${message.channel.id}>\n\n \`${message.cleanContent}\``)
        .setTimestamp();
      channel.send({embed:embed});
- 
+
 });
- 
+
+// لوق تعديل الرسائل
 client.on('messageUpdate', (message, newMessage) => {
-  if(!logs[message.guild.id]) logs[message.guild.id] = {
-  chattt: 'logs'
-  }
     if (message.content === newMessage.content) return;
     if (!message || !message.id || !message.content || !message.guild || message.author.bot) return;
-    const channel = (message.guild.channels.find(`name`, logs[message.guild.id].chattt))
+    const channel = message.guild.channels.find('name', 'bot-hell');
     if (!channel) return;
-   
+    
     let embed = new Discord.RichEmbed()
        .setAuthor(`${message.author.tag}`, message.author.avatarURL)
-       .setColor('#000000')
-       .setDescription(` :pencil2:  **Message sent by <@${message.author.id}> edited in** <#${message.channel.id}>\n\nOld:\n \`\`\`css\n${message.cleanContent}\`\`\`\n\nNew:\n \`\`\`${newMessage.cleanContent}\`\`\``)
+       .setColor('SILVER')
+       .setDescription(`✏ **تعديل رساله
+ارسلها <@${message.author.id}>                                                                                                                         تم تعديلها في شات** <#${message.channel.id}>\n\nقبل التعديل:\n \`${message.cleanContent}\`\n\nبعد التعديل:\n \`${newMessage.cleanContent}\``)
        .setTimestamp();
      channel.send({embed:embed});
- 
+
+});
+
+client.on('message', message => {
+  var prefix ="-"; 
+if (message.content.startsWith(prefix + 'perms')) {
+         if(!message.channel.guild) return;
+         var perms = JSON.stringify(message.channel.permissionsFor(message.author).serialize(), null, 4);
+         var zPeRms = new Discord.RichEmbed()
+         .setColor('RANDOM')
+         .setTitle(':tools: Permissions')
+         .addField('Your Permissions:',perms)
+                  message.channel.send({embed:zPeRms});
+
+    }
 });
 
 
