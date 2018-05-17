@@ -11,10 +11,40 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
+const sql = require("sqlite");
  const dateFormat = require('dateformat');
  const pretty = require('pretty-ms')
 ,ti={};   
 
+
+client.on("message", async message => {
+	var prefix = "-";
+    if (message.content.startsWith(prefix + "achieve")) {
+         var ids = [
+            "20",
+            "1",
+            "13",
+            "18",
+            "17",
+            "9",
+            "31",
+            "22",
+            "23",
+            "2",
+            "11",
+            "19",
+            "24",
+            "25",
+            "12",
+            "33"
+            ]
+            const randomizer = Math.floor(Math.random()*ids.length);
+            const args = message.content.split(" ").slice(1).join(" ")
+    if (!args) return message.channel.send("Put something you want to achieve!");
+    const image = new Discord.Attachment(`https://www.minecraftskinstealer.com/achievement/a.php?i=${ids[randomizer]}&h=Achievement Get!&t=${args}`, "achievement.png");
+message.channel.send(image)
+    }
+});
 
  client.on('message',( message )=>{
 var attentions = {};
@@ -667,6 +697,8 @@ if (message.content.startsWith(prefix + 'help-public')) {
 
 
 💎-alarm 『المنبه』 
+
+💎-achieve 『يكتب لك الجملة في شكل اشيفمنت』
                         
 💎-server 『معلومات عن السيرفر』  
 
