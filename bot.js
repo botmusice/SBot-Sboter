@@ -1523,33 +1523,7 @@ client.on('message', message => {
        message.channel.sendEmbed(embed)
     }
 });
-
-
- client.on('message', message => {
-	 if(!message.channel.guild) return;
-	 var prefix = "-";
-	 if(message.content.startsWith(prefix + 'bc')) {
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
- if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );		 
-let args = message.content.split(" ").join(" ").slice(2 + prefix.length);		 
-	let copy = "Speed Bot";
-		 let request = `Requested By ${message.author.username}`;
-		 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');
-		 message.channel.send(`☑ | Done ... The Broadcast Message Has Been Sent For ${message.guild.members.size} Members`).then(m => m.delete(5000));
-  message.guild.members.forEach(m => {
-	  var bc = new  Discord.RichEmbed()
-	  .setColor('RANDOM')
-          .setTitle('Broadcast')
-          .addField('Server', message.guild.name)
-	  .addField('Sender', message.author.username)
-	  .addField('Message', args)
-	  .setThumbnail(message.author.avatarURL)
-	  .setFooter(copy, client.user.avatarURL);
-	   m.send({ embed: bc })
-	  message.delete();
-	  })
- }
-	   });
+ 
 client.on('message', msg => {
 	var prefix = "-";
   if (msg.author.bot) return;
