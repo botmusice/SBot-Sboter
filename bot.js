@@ -17,10 +17,36 @@ const sql = require("sqlite");
 ,ti={} 
 ,spee={};
 
-let points = {}
- 
- 
- 
+client.on('message', message => {
+	var prefix = "-";
+if (message.author.id === client.user.id) return;
+if (message.guild) {
+let embed = new Discord.RichEmbed()
+let args = message.content.split(' ').slice(1).join(' ');
+if(message.content.split(' ')[0] == prefix + 'bc') {
+if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
+if (!args[1]) {
+return;
+}
+  message.guild.members.forEach(m => {
+if(!message.member.hasPermission('ADMINISTRATOR')) return;
+      var bc = new Discord.RichEmbed()
+      .addField('# | الرسالة ', args)
+      .setThumbnail(message.guild.iconURL)
+      .setColor('RANDOM')
+      m.sendMessage(args)
+  });
+         if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(":x: **ليس لديك صلاحية للنشر هنا**");
+  const AziRo = new Discord.RichEmbed()   
+  .setColor('RANDOM')
+  message.channel.sendEmbed(AziRo);          
+}
+} else {
+  return;
+}
+});
+
+let points = {};
 const type = [
     {
             "type": "https://cdn.discordapp.com/attachments/429298913980317696/429298994078810127/a90c6b270eb8bb2e.png",
@@ -1235,6 +1261,8 @@ if (message.content.startsWith(prefix + 'help-games')) {
 🎮-عملة
 
 🎮-حب
+
+🎮-speed / -pints | سرعة الكتابة + نقاطك
 
 🎲-roll 1   『القرعة من 1 الى 25』
 
