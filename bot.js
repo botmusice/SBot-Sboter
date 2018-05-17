@@ -19,11 +19,48 @@ const sql = require("sqlite");
 
 client.on('message', message => {
 	var prefix = "-";
+        if (message.author.id === client.user.id) return;
+        if (message.guild) {
+       let embed = new Discord.RichEmbed()
+        let args = message.content.split(' ').slice(1).join(' ');
+    if(message.content.split(' ')[0] == prefix + 'bc') {
+        if (!args[1]) {
+    message.channel.send("**-bc <message>**");
+    return;
+    }
+            message.guild.members.forEach(m => {
+       if(!message.member.hasPermission('ADMINISTRATOR')) return;
+                var bc = new Discord.RichEmbed()
+                .setAuthor(message.author.username, message.author.avatarURL)
+                .addField('** الـسيرفر**', `${message.guild.name}`,true)
+                .addField(' **الـمرسل **', `${message.author.username}#${message.author.discriminator}`,true)
+                .addField(' **الرسالة** ', args)
+                .setThumbnail(message.guild.iconURL)
+                .setColor('RANDOM')
+                m.send(`${m}`,{embed: bc});
+            });
+            const AziRo = new Discord.RichEmbed()
+            .setAuthor(message.author.username, message.author.avatarURL)   
+            .setTitle('✔️ | جاري ارسال رسالتك ') 
+            .addBlankField(true)
+            .addField('👥 | عدد الاعضاء المرسل لهم ', message.guild.memberCount , true)        
+            .addField('📋| الرسالة ', args)
+            .setColor('RANDOM')  
+            message.channel.sendEmbed(AziRo);          
+        }
+        } else {
+            return;
+        }
+});
+
+
+client.on('message', message => {
+	var prefix = "-";
 if (message.author.id === client.user.id) return;
 if (message.guild) {
 let embed = new Discord.RichEmbed()
 let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc') {
+if(message.content.split(' ')[0] == prefix + 'bc1') {
 if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
 if (!args[1]) {
 return;
@@ -1337,7 +1374,9 @@ if (message.content.startsWith(prefix + 'help-admin')) {
 
 👑-schannel 『لاضهار الرروم 』
 
-👑-bc 『لارسال رسالة لكل اعضاء السيرفر 』
+👑-bc 『 لارسال رسالة لكل اعضاء السيرفر مع اضهار المرسل و السيرفر 』
+
+👑-bc1 『لارسال رسالة لكل اعضاء السيرفر بدون اضهار السيرفر والمرسل 』 
 
 👑-clr <number> 『لمسح الشات بعدد 』
 
