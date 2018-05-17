@@ -257,6 +257,7 @@ client.on('message', message => {
 
 let logs = {}
 client.on('message', message => {
+	var prefix ="-";
 if(!message.guild) return;
 if(message.author.bot)return;
 if (!logs[message.guild.id]) logs[message.guild.id] = {
