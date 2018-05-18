@@ -13,6 +13,7 @@
     "finalhandler": "^1.1.1",
     "fortnite": "^3.0.0",
     "fs": "^0.0.2",
+    "giphy-api": "1.2.7",
     "zalgolize":"1.2.4",
     "eris":"0.8.5",
     "google-translate-api":"2.3.0",
