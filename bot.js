@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client(); 
 const translate = require('google-translate-api');
-const math = require('math-expression-evaluator');
-const stripIndents = require('common-tags').stripIndents;
 const fs = require("fs"); 
 const moment = require("moment");
 const { Client, Util } = require('discord.js');
@@ -34,8 +32,6 @@ if (message.content.startsWith(prefix + 'help-public')) {
 💎-alarm 『المنبه』
 
 💎-translate 『ترجمة اي شي』
-
-💎-calculate 『حساب اي شي』
 
 💎-discrim 『يعرض لك الاشخاص الي عندهم تاق متلك』
 
@@ -371,27 +367,6 @@ if (message.content.startsWith(prefix + 'translate')) {
 }
 });
 
-client.on('message', msg => {
-	var prefix = "-";
- if (msg.content.startsWith(prefix + 'calculate')) {
-    let args = msg.content.split(" ").slice(1);
-        const question = args.join(' ');
-    if (args.length < 1) {
-        msg.reply('Specify a equation, please.');
-} else {    let answer;
-    try {
-        answer = math.eval(question);
-    } catch (err) {
-        msg.reply(`Error: ${err}`);
-    }
-    
-    const embed = new Discord.RichEmbed()
-    .addField("**Input**: ",`**${question}**`, true)
-    .addField("**Output**: ",`**${answer}**`, true)
-    msg.channel.send(embed)
-    }
-};
-});
 
 client.on('message',function(message) {
                   if(!message.channel.guild) return;
