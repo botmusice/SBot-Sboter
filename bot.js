@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client(); 
+const giphy = require('giphy-api')();
 const translate = require('google-translate-api'); 
 const fs = require("fs"); 
 const moment = require("moment");
@@ -320,6 +321,36 @@ bot-hell
   message.author.sendEmbed(embed)
 }
 });
+
+function getValue(key, array) {
+  for (var el in array) {
+    if (array[el].hasOwnProperty(key)) {
+      return array[el][key];
+    }
+  }
+}
+
+    client.on('message', message => {
+	    var prefix = "-";
+    if(message.content.startsWith(prefix + 'gif')) {
+        sb = message.content.substring(4)
+      giphy.random({
+        tag: sb,
+        rating: 'g',
+        fmt: 'json'
+      }, function(err, res) {
+        if (getValue("image_url", res)) {
+
+          message.channel.send({files:[{
+              attachment: getValue("image_url", res),
+              name: 'gif'+sb+'.gif'
+          }]
+        });
+        }
+
+      });
+      }
+});  
 
 const Langs = ['afrikaans', 'albanian', 'amharic', 'arabic', 'armenian', 'azerbaijani', 'bangla', 'basque', 'belarusian', 'bengali', 'bosnian', 'bulgarian', 'burmese', 'catalan', 'cebuano', 'chichewa', 'chinese simplified', 'chinese traditional', 'corsican', 'croatian', 'czech', 'danish', 'dutch', 'english', 'esperanto', 'estonian', 'filipino', 'finnish', 'french', 'frisian', 'galician', 'georgian', 'german', 'greek', 'gujarati', 'haitian creole', 'hausa', 'hawaiian', 'hebrew', 'hindi', 'hmong', 'hungarian', 'icelandic', 'igbo', 'indonesian', 'irish', 'italian', 'japanese', 'javanese', 'kannada', 'kazakh', 'khmer', 'korean', 'kurdish (kurmanji)', 'kyrgyz', 'lao', 'latin', 'latvian', 'lithuanian', 'luxembourgish', 'macedonian', 'malagasy', 'malay', 'malayalam', 'maltese', 'maori', 'marathi', 'mongolian', 'myanmar (burmese)', 'nepali', 'norwegian', 'nyanja', 'pashto', 'persian', 'polish', 'portugese', 'punjabi', 'romanian', 'russian', 'samoan', 'scottish gaelic', 'serbian', 'sesotho', 'shona', 'sindhi', 'sinhala', 'slovak', 'slovenian', 'somali', 'spanish', 'sundanese', 'swahili', 'swedish', 'tajik', 'tamil', 'telugu', 'thai', 'turkish', 'ukrainian', 'urdu', 'uzbek', 'vietnamese', 'welsh', 'xhosa', 'yiddish', 'yoruba', 'zulu'];
 
