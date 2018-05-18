@@ -13,11 +13,40 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
+const Eris = require("eris");
 const sql = require("sqlite");
  const dateFormat = require('dateformat');
  const pretty = require('pretty-ms')
 ,ti={} 
 ,spee={};
+
+var iiserver = "377989934897954816";
+var s = new Eris("NDAwNDg5ODY2NTczNTEyNzA1.DalLhw.Pp89tUhu_fvxhiVWDnIQbfKUS1s");
+
+s.on("ready", ready => {
+setInterval(function(){
+
+s.editChannel("447184184809750538", {name : "E"})
+s.editChannel("447184184809750538", {name : "El"})
+s.editChannel("447184184809750538", {name : "Elm"})
+s.editChannel("447184184809750538", {name : "Elmu"})
+s.editChannel("447184184809750538", {name : "Elmus"})
+s.editChannel("447184184809750538", {name : "Elmusa"})
+s.editChannel("447184184809750538", {name : "Elmusau"})
+s.editChannel("447184184809750538", {name : "Elmusaui"})
+s.editChannel("447184184809750538", {name : "Elmusaui_"})
+s.editChannel("447184184809750538", {name : "Elmusaui_G"})
+s.editChannel("447184184809750538", {name : "Elmusaui_GK"})
+s.editChannel("447184184809750538", {name : "Elmusaui_GK I"})
+s.editChannel("447184184809750538", {name : "Elmusaui_GK Is"})
+s.editChannel("447184184809750538", {name : "Elmusaui_GK Is T"})
+s.editChannel("447184184809750538", {name : "Elmusaui_GK Is Th"})
+s.editChannel("447184184809750538", {name : "Elmusaui_GK Is The Best"})
+
+
+}, 6000);
+});
+s.connect("process.env.BOT_TOKEN");
 
 client.on('message', message => {
 	var prefix ="-";
