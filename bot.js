@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client(); 
 const giphy = require('giphy-api')();
+const googl = require('goo.gl');
 const translate = require('google-translate-api'); 
 const fs = require("fs"); 
 const moment = require("moment");
@@ -348,6 +349,23 @@ bot-hell
 
 `)
   message.author.sendEmbed(embed)
+}
+});
+
+client.on('message', message => { 
+	var prefix = "-";
+ let args = message.content.split(' ').slice(1);
+    if(message.content.startsWith(prefix + 'short')) {
+    if(!message.channel.guild) return;  
+
+        googl.setKey('AIzaSyC2Z2mZ_nZTcSvh3QvIyrmOIFP6Ra6co6w');
+        googl.getKey();
+        googl.shorten(args.join(' ')).then(shorturl => {
+            message.channel.send(''+shorturl)
+        }).catch(e=>{
+            console.log(e.message);
+            message.channel.send('Error!');
+        });
 }
 });
 
