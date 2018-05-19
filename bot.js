@@ -51,7 +51,6 @@ const music = new Music(client, {
     enableQueueStat: true,
   });
 
-
 client.on('message', message => {
 	var prefix ="-";
 if (message.content.startsWith(prefix + 'help-public')) {
