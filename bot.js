@@ -7,6 +7,8 @@ const moment = require("moment");
 const { Client, Util } = require('discord.js'); 
 const UserBlocked = new Set();
 const jimp = require('jimp'); 
+const figlet = require('figlet');
+const google = require('google-it');
 const zalgo = require('zalgolize');   
 const { PREFIX, GOOGLE_API_KEY } = require('./config');  
 const YouTube = require('simple-youtube-api');
@@ -348,6 +350,32 @@ bot-hell
   message.author.sendEmbed(embed)
 }
 });
+
+client.on('message', message => {
+	var prefix = "-";
+if (message.content.startsWith(prefix + 'tag')) {
+    let args = message.content.split(" ").slice(1);
+if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');  
+
+    figlet(args.join(" "), (err, data) => {
+              message.channel.send("```" + data + "```")
+           })
+}
+});
+
+client.on('message', message => {
+	var prefix ="-";
+ let args = message.content.split(' ').slice(1);
+    if(message.content.startsWith(prefix + 'google')) {
+    const input = args.join(' ');
+
+google({ query: input, disableConsole: true }).then(results => {
+    return message.channel.send(`\n\n**Title**: ${results[0].title}\n***Link***: ${results[0].link}\nDescription: ${results[0].snippet}`);
+}).catch(error => {
+    if (error) throw error;
+});
+
+}});
 
 function getValue(key, array) {
   for (var el in array) {
