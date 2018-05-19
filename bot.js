@@ -53,7 +53,7 @@ const music = new Music(client, {
 
 client.on('guildMemberAdd', member => {
       
-        if (member.guild.id === "377989934897954816") {
+        if (member.guild.id === "442346379277500426") {
         var w = ['https://cdn.discordapp.com/attachments/447077848772247552/447397991905755146/images.jpg'];
            let Image = Canvas.Image,
                canvas = new Canvas(401, 202),
@@ -85,8 +85,8 @@ client.on('guildMemberAdd', member => {
                                  ctx.closePath();
                                  ctx.clip();
                                  ctx.drawImage(ava, 10, 25, 135, 170);                    
-   client.channels.get("ايدي الروم").sendFile(canvas.toBuffer())
-  client.channels.get("ايدي الروم").send(`Welcome ${member} To __${member.guild.name}__`):nox: 
+   client.channels.get("447077848772247552").sendFile(canvas.toBuffer())
+  client.channels.get("447077848772247552").send(`Welcome ${member} To __${member.guild.name}__`)
    })})  }
    });
 
