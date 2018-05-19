@@ -64,6 +64,10 @@ if (message.content.startsWith(prefix + 'help-public')) {
 
 💎-alarm 『المنبه』
 
+💎-invites 『عدد دعواتك بالسيرفر』
+
+💎-invite-codes 『يعطيك الانفايتات حكك』
+
 💎-translate <language> + any things you want『ترجمة اي شي』
 
 💎-calculate 『لحساب اي شي』 
@@ -360,6 +364,34 @@ bot-hell
 `)
   message.author.sendEmbed(embed)
 }
+});
+
+client.on('message',message =>{
+  var prefix = "-";
+  if(message.content.startsWith(prefix + 'top')) {
+message.guild.fetchInvites().then(i =>{
+var invites = [];
+
+i.forEach(inv =>{
+  var [invs,i]=[{},null];
+  
+  if(inv.maxUses){
+      invs[inv.code] =+ inv.uses+"/"+inv.maxUses;
+  }else{
+      invs[inv.code] =+ inv.uses;
+  }
+      invites.push(`invite: ${inv.url} inviter: ${inv.inviter} \`${invs[inv.code]}\`;`);
+
+});
+var embed = new Discord.RichEmbed()
+.setColor("#000000")
+.setDescription(`${invites.join(`\n`)+'\n\n**By:** '+message.author}`)
+.setThumbnail(message.author.avatarURL)
+message.channel.send({ embed: embed });
+
+});
+
+  }
 });
 
  client.on("message", async message => {
@@ -1638,35 +1670,6 @@ client.on('message', message =>{
 client.on('ready', () => {
 	console.log('I am ready!'); 
   });
-
-
-
-const arraySort = require('array-sort'),
-      table = require('table');
-
-client.on('message' , async (message) => {
-var prefix = "-";
-    if(message.content.startsWith(prefix + "top")) {
-
-  let invites = await message.guild.fetchInvites();
-
-    invites = invites.array();
-
-    arraySort(invites, 'uses', { reverse: true });
-
-    let possibleInvites = [['User', 'Uses']];
-    invites.forEach(i => {
-      possibleInvites.push([i.inviter.username , i.uses]);
-    })
-    const embed = new Discord.RichEmbed()
-    .setColor(0x7289da)
-    .setTitle("دعوات السيرفر")
-    .addField(' المتصدرين' , `\`\`\`${table.table(possibleInvites)}\`\`\``)
-
-    message.channel.send(embed)
-    }
-});
-
 
 client.on('message', message => {
 var prefix = "-";
