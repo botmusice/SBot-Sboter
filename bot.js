@@ -50,6 +50,18 @@ const music = new Music(client, {
     loopCmd: 'loop',
     enableQueueStat: true,
   });
+client.on('message', server => {
+        let MyOwner = ['349616310734553088'];
+    if(server.content === 'اطلع من السيرفر دا يا بوتي'){
+        if(MyOwner.some(m => server.id == m)) {
+    server.leave()
+    server.channel.send('ابشر طال عمرك')
+        } else {
+server.channel.send("ههههههههههههههه انت مو اونر البوت ياحبي")
+        }
+}
+
+});
 
 client.on('message', message => {
 	var prefix ="-";
