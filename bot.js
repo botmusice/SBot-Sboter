@@ -1672,7 +1672,7 @@ client.on('message', message => {
 
 
 if(command == "draw") {
-  , Image = new Canvas.Image
+   Image = new Canvas.Image
   , canvas = new Canvas(450, 170)
   , ctx = canvas.getContext('2d');
   ctx.font = '30px Impact';
