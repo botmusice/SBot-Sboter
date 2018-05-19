@@ -8,6 +8,8 @@ const moment = require("moment");
 const { Client, Util } = require('discord.js'); 
 const UserBlocked = new Set();
 const jimp = require('jimp'); 
+const math = require('math-expression-evaluator');
+const stripIndents = require('common-tags').stripIndents;
 const figlet = require('figlet');
 const google = require('google-it');
 const zalgo = require('zalgolize');   
@@ -62,7 +64,9 @@ if (message.content.startsWith(prefix + 'help-public')) {
 
 💎-alarm 『المنبه』
 
-💎-translate 『ترجمة اي شي』
+💎-translate <language> + any things you want『ترجمة اي شي』
+
+💎-calculate 『لحساب اي شي』
 
 💎-discrim 『يعرض لك الاشخاص الي عندهم تاق متلك』
 
@@ -71,6 +75,12 @@ if (message.content.startsWith(prefix + 'help-public')) {
 💎-server 『معلومات عن السيرفر』  
 
 💎-za5 『لزخرف الكلمات او الجمل』 
+
+💎-tag 『لزخرف الكلمات او الجمل بشكل حلو』
+
+💎-short 『يقص لك رابط 』
+
+💎-google 『يبحث لك في القوقل』
 
 💎-perms 『لعرض برمشناتك في السيرفر الي انت فيه』
 
@@ -350,6 +360,28 @@ bot-hell
 `)
   message.author.sendEmbed(embed)
 }
+});
+
+client.on('message', msg => {
+	var  prefix = "-";
+ if (msg.content.startsWith(prefix + 'calculate')) {
+    let args = msg.content.split(" ").slice(1);
+        const question = args.join(' ');
+    if (args.length < 1) {
+        msg.reply('Specify a equation, please.');
+} else {    let answer;
+    try {
+        answer = math.eval(question);
+    } catch (err) {
+        msg.reply(`Error: ${err}`);
+    }
+    
+    const embed = new Discord.RichEmbed()
+    .addField("**Input**: ",`**${question}**`, true)
+    .addField("**Output**: ",`**${answer}**`, true)
+    msg.channel.send(embed)
+    }
+};
 });
 
 client.on('message', message => { 
