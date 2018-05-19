@@ -1553,7 +1553,6 @@ client.on('guildMemberAdd', member => {
         channel.sendEmbed(embed);
       });
 
-
 client.on('ready', () => { 
   console.log(`Logged in as ${client.user.tag}!`);
 });
