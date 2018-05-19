@@ -78,7 +78,7 @@ if (message.content.startsWith(prefix + 'help-public')) {
 
 💎-translate <language> + any things you want『ترجمة اي شي』
 
-💎-calculate 『لحساب اي شي』
+💎-calculate 『لحساب اي شي』 
 
 💎-discrim 『يعرض لك الاشخاص الي عندهم تاق متلك』
 
