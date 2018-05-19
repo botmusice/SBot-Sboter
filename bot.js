@@ -51,44 +51,6 @@ const music = new Music(client, {
     enableQueueStat: true,
   });
 
-client.on('guildMemberAdd', member => {
-      
-        if (member.guild.id === "442346379277500426") {
-        var w = ['https://cdn.discordapp.com/attachments/447077848772247552/447397991905755146/images.jpg'];
-           let Image = Canvas.Image,
-               canvas = new Canvas(401, 202),
-               ctx = canvas.getContext('2d');
-           ctx.patternQuality = 'bilinear';
-           ctx.filter = 'bilinear';
-           ctx.antialias = 'subpixel';
-           ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-           ctx.shadowOffsetY = 2;
-           ctx.shadowBlur = 2;
-           fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-               if (err) return console.log(err);
-               let BG = Canvas.Image;
-               let ground = new Image;
-               ground.src = Background;
-               ctx.drawImage(ground, 0, 0, 401, 202);
-   
-   })
-                   let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".png" : member.user.displayAvatarURL;
-                   jimp.read(url, (err, ava) => {
-                       if (err) return console.log(err);
-                       ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                           if (err) return console.log(err);
-                              let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.beginPath();
-                              ctx.arc(75, 100, 63, 0, Math.PI*2);
-                                 ctx.closePath();
-                                 ctx.clip();
-                                 ctx.drawImage(ava, 10, 25, 135, 170);                    
-   client.channels.get("447077848772247552").sendFile(canvas.toBuffer())
-  client.channels.get("447077848772247552").send(`Welcome ${member} To __${member.guild.name}__`)
-   })})  }
-   });
 
 client.on('message', message => {
 	var prefix ="-";
