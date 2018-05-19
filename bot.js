@@ -51,6 +51,40 @@ const music = new Music(client, {
     enableQueueStat: true,
   });
 
+client.on('message', async message => {
+var prefix = "-";
+    if(message.content.startsWith(prefix + 'vote')) {
+      let args = message.content.split(' ').slice(1);
+      let customArgs = args.slice(0).join(' ').split(' | ');
+
+      let time = customArgs[0];
+      if (!time) return message.reply('اختر الوقت الي تبيه');
+      let voteTitle = customArgs[1];
+      if (!voteTitle) return message.reply('اختر عنوان التصويت');
+
+      const embed = new Discord.RichEmbed()
+      .setTitle('New vote started!')
+      .setDescription(`${voteTitle}\n\nReact now with 👍 or 👎\nTime : ${ms(ms(time), { long: true })}`)
+      .setColor('0x42f456')
+      .setTimestamp()
+
+      let msg = await message.channel.send(embed)
+      await msg.react('👍')
+      await msg.react('👎')
+
+      const reactions = await msg.awaitReactions(reaction => reaction.emoji.name === '👍' || reaction.emoji.name ==='👎', { time: ms(time)})
+      let countup = reactions.get('👍') ? reactions.get('👍').count - 1 : 'None';
+      let countdown = reactions.get('👎') ? reactions.get('👎').count - 1 : 'None';
+      embed.setTitle('Vote has ended')
+      embed.setDescription(`👍: ${countup}\n\n👎: ${countdown}`)
+      embed.setColor('0xf44141')
+      msg.clearReactions()
+      await msg.edit(embed)
+
+
+    }
+  });
+
 client.on('message', message => {
 	var prefix ="-";
 if (message.content.startsWith(prefix + 'help-public')) {
