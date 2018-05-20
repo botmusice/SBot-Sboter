@@ -622,7 +622,7 @@ client.on('message', message => {
     return;
     }
             message.guild.members.forEach(m => {
-       if(!message.member.hasPermission('ADMINISTRATOR')) return ;
+       if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(':x: | Sorry You Dont Have Permission ADMINISTRATOR');
                 var bc = new Discord.RichEmbed()
                 .setAuthor(message.author.username, message.author.avatarURL)
                 .addField('** الـسيرفر**', `${message.guild.name}`,true)
