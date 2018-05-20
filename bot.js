@@ -14,7 +14,7 @@ const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
 const figlet = require('figlet');
 const google = require('google-it');
-const bot = new Eris(BOT_TOKEN);
+const bot = new Eris(process.env.BOT_TOKEN);
 const zalgo = require('zalgolize');   
 const { PREFIX, GOOGLE_API_KEY } = require('./config');  
 const YouTube = require('simple-youtube-api');
@@ -365,7 +365,7 @@ bot-hell
 }
 });
 
-bot.connect(BOT_TOKEN)
+bot.connect(process.env.BOT_TOKEN)
 bot.on("ready", ready => {
 	var iD = "447854318222180352";
 setInterval(function(){
