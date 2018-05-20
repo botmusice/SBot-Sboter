@@ -13,6 +13,7 @@ const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
 const figlet = require('figlet');
 const google = require('google-it');
+const bot = new Eris("BOT_TOKEN");
 const zalgo = require('zalgolize');   
 const { PREFIX, GOOGLE_API_KEY } = require('./config');  
 const YouTube = require('simple-youtube-api');
@@ -363,6 +364,39 @@ bot-hell
   message.author.sendEmbed(embed)
 }
 });
+
+bot.connect("BOT_TOKEN")
+bot.on("ready", ready => {
+	var iD = "447854318222180352";
+setInterval(function(){
+ 
+            var currentTime = new Date(),
+            hours = currentTime.getHours() + 2 ,
+            minutes = currentTime.getMinutes(),
+            seconds = currentTime.getSeconds(),
+            years = currentTime.getFullYear(),
+            month = currentTime.getMonth() + 1,
+            day = currentTime.getDate(),
+            week = currentTime.getDay();
+           
+             
+ 
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            var suffix = "AM";
+            if (hours >= 12) {
+                suffix = "PM";
+                hours = hours - 12;
+            }
+            if (hours == 0) {
+                hours = 12;
+            }
+bot.editChannel(iD, {name : "- Time | [" + hours + "-" + minutes + "-" + seconds+ "]"});
+}, 3000);
+ 
+}); 
+
 
 client.on('message',message =>{
   var prefix = "-";
