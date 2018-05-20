@@ -373,7 +373,6 @@ setInterval(function(){
             var currentTime = new Date(),
             hours = currentTime.getHours() + 2 ,
             minutes = currentTime.getMinutes(),
-            seconds = currentTime.getSeconds(),
             years = currentTime.getFullYear(),
             month = currentTime.getMonth() + 1,
             day = currentTime.getDate(),
@@ -392,7 +391,7 @@ setInterval(function(){
             if (hours == 0) {
                 hours = 12;
             }
-bot.editChannel(iD, {name : "- Time | [" + hours + "-" + minutes + "-" + seconds+ "]"});
+bot.editChannel(iD, {name : "- Time | [" + hours + "-" + minutes + "]"});
 }, 3000);
  
 }); 
