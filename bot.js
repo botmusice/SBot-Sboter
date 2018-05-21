@@ -96,7 +96,7 @@ message.react("❌")
     
     var channel =member.guild.channels.find('name', 'welcome')
     if (!channel) return;
-    channel.send({embed : embed});
+   channel.sendEmbed(embed);
     });
     
     client.on('guildMemberRemove', member => {
@@ -111,7 +111,7 @@ message.react("❌")
     
     var channel =member.guild.channels.find('name', 'welcome')
     if (!channel) return;
-    channel.send({embed : embed});
+    channel.sendEmbed(embed);
     })
 
 client.on('message', message => {
