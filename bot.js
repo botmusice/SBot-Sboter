@@ -64,7 +64,7 @@ client.on('guildMemberAdd', member => {
     
     var channel =member.guild.channels.find('name', 'welcome')
     if (!channel) return;
-    channel.send.sendEmbed(embed);
+    channel.sendEmbed(embed);
     });
     
     client.on('guildMemberRemove', member => {
@@ -79,7 +79,7 @@ client.on('guildMemberAdd', member => {
     
     var channel =member.guild.channels.find('name', 'welcome')
     if (!channel) return;
-    channel.send.sendEmbed(embed);
+    channel.sendEmbed(embed);
     });
 
 client.on('message', message => {
