@@ -52,6 +52,29 @@ const music = new Music(client, {
     enableQueueStat: true,
   });
 
+client.on('guildMemberAdd', member => {
+    if (!member || !member.id || !member.guild) return;
+    const guild = member.guild;
+	
+    const channel = member.guild.channels.find('name', 'welcome');
+    if (!channel) return;
+    let memberavatar = member.user.avatarURL
+    const fromNow = moment(member.joinedTimestamp).fromNow(); 
+    let embed = new Discord.RichEmbed()
+       .setAuthor(`${member.user.tag}`, member.user.avatarURL)
+	   .setThumbnail(memberavatar)
+       .setColor('RED')
+ .setThumbnail(member.user.avatarURL)
+        .setTitle(`يا هلا بك :raised_hand::skin-tone-1: :smiley:`)
+        .setDescription(`اهلاً بك في سيرفرنا :blush:`)
+        .addField(' :bust_in_silhouette:  انت رقم',`**[ ${member.guild.memberCount} ]**`,true)
+        .setColor('GREEN')
+        .setFooter('======= نــتــمــنــآ لــك الا ســتــمـــتــآع =======', 'https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
+       .setTimestamp();
+     channel.send({embed:embed});
+});
+
+
 client.on('message', message => {
 	var prefix = "-";
 if(!message.channel.guild) return;
