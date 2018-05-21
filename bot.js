@@ -441,7 +441,7 @@ i.forEach(inv =>{
   }else{
       invs[inv.code] =+ inv.uses;
   }
-      invites.push(`invite: ${inv.url} inviter: ${inv.inviter} \`${invs[inv.code]}\`;`);
+      invites.push(`inviter: ${inv.inviter} \`${invs[inv.code]}\`;`);
 
 });
 var embed = new Discord.RichEmbed()
