@@ -52,6 +52,28 @@ const music = new Music(client, {
     enableQueueStat: true,
   });
 
+ client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'welcome');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return;
+    let embed = new Discord.RichEmbed()
+        .setColor('ff0000')
+        .setThumbnail(memberavatar)
+        .addField('الاسم :  ',`${member}`)
+        .addField(' | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
+        .addField('اي دي العضو', "**[" + `${member.id}` + "]**" )
+                .addField('?| انت العضو رقم',`${member.guild.memberCount}`)
+               
+                  .addField("الاسم:",`<@` + `${member.id}` + `>`, true)
+                     
+                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
+                                       
+     .setFooter("**Speed Bot**")
+        .setTimestamp()
+   
+      channel.sendEmbed(embed);
+    });
+
 client.on('message', message => {
 	var prefix ="-";
 if (message.content.startsWith(prefix + 'help-public')) {
