@@ -2070,17 +2070,6 @@ client.on('guildMemberAdd', member => {
     });
 
 client.on('guildCreate', guild => {
-  client.channels.get("446261493684502529").send(`**Woops new server ✅
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__**`)
-});
-client.on("guildDelete", guild => {
- client.channels.get("446261493684502529").send(`**Rmoved From server :x:
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__**`)
-});
-
-client.on('guildCreate', guild => {
   var embed = new Discord.RichEmbed()
   .setColor(0x5500ff)
   .setDescription(`**شكراً لك لإضافه البوت الى سيرفرك**`)
