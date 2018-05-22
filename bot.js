@@ -291,7 +291,7 @@ if (message.content.startsWith(prefix + 'help-games')) {
 `)
   message.author.sendEmbed(embed)
 }
-});
+}); 
 
 
 
