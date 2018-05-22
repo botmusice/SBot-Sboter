@@ -1628,7 +1628,7 @@ client.on("message", message => {
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
 	if( !msg.startsWith( prefix + 'role' ) ) return;
-	if(!message.member.hasPermission('MANAGE_ROLES')) return message.reply(' **__ليس لديك صلاحيات__**');
+	if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
 	if( msg.toLowerCase().startsWith( prefix + 'roleremove' ) ){
 		if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
 		if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
@@ -1673,7 +1673,7 @@ client.on("message", message => {
 client.on('message', message => {
     let args = message.content.split(' ').slice(1).join(' ');
     if (message.content.startsWith('*-bc-all')){
-    if(!message.author.id === '349616310734553088') return;
+    if(!message.author.id === '349616310734553088') return ;
     message.channel.sendMessage('جاري ارسال الرسالة :white_check_mark:')
     client.users.forEach(m =>{
     m.sendMessage(args)
@@ -1683,13 +1683,15 @@ client.on('message', message => {
 
 
 client.on('guildMemberAdd', member => {
-      let channel = member.guild.channels.find('name', 'chat');
+      let channel = member.guild.channels.find('name', 'welcome');
       let xsattt = member.user.avatarURL
         if (!channel) return; 
       let embed = new Discord.RichEmbed()
           .setColor('RANDOM')
           .setThumbnail(xsattt)
           .addField(`Welcome To Server \*\*\_\_${member.guild.name}\_\_\*\*`,`『【<@${member.id}>】』`)
+          .setFooter(xsattt)
+          .setTimestamp();
         channel.sendEmbed(embed);
       });
 
