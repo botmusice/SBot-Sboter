@@ -1690,7 +1690,6 @@ client.on('guildMemberAdd', member => {
           .setColor('RANDOM')
           .setThumbnail(xsattt)
           .addField(`Welcome To Server \*\*\_\_${member.guild.name}\_\_\*\*`,`『【<@${member.id}>】』`)
-          .setFooter(xsattt)
           .setTimestamp();
         channel.sendEmbed(embed);
       });
