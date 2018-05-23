@@ -63,7 +63,7 @@ client.on('guildMemberAdd', member => {
         .addField(':loudspeaker: | نورت السيرفر يا قلبي' , `Welcome to server **${member.guild.name}**`)
         .addField(':id: | user :', "**[" + `${member.id}` + "]**" )
                 .addField('➡| انت العضو رقم',`**[${member.guild.memberCount}]**`)
-     .setFooter(`${member}`)
+     .setFooter(`${member.user.name}`)
         .setTimestamp()
    
       channel.sendEmbed(embed);
