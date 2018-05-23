@@ -52,14 +52,6 @@ const music = new Music(client, {
     enableQueueStat: true,
   });
 
- client.on('message', message => {
-	 var prefix = "-";
-       if (message.content.startsWith(prefix + 'botserver')) {
-     let msg =  client.guilds.map(guild => `**${guild.name}** عدد الاعضاء: ${guild.memberCount}`).join('\n');
-  message.channel.send(`${msg}`);
-}
-});
-
 client.on('guildMemberAdd', member => {
     let channel = member.guild.channels.find('name', 'welcome');
     let memberavatar = member.user.avatarURL
