@@ -60,15 +60,10 @@ client.on('guildMemberAdd', member => {
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
         .addField(':running_shirt_with_sash: | name :  ',`${member}`)
-        .addField(':loudspeaker: | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
+        .addField(':loudspeaker: | نورت السيرفر يا قلبي' , `Welcome to server **${member.guild.name}**`)
         .addField(':id: | user :', "**[" + `${member.id}` + "]**" )
-                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
-               
-                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
-                     
-                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
-                                       
-     .setFooter("SERVER")
+                .addField('➡| انت العضو رقم',`**${member.guild.memberCount}**`)
+     .setFooter(`${member.guild.name}`)
         .setTimestamp()
    
       channel.sendEmbed(embed);
