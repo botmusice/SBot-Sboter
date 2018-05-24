@@ -50,7 +50,7 @@ const music = new Music(client, {
     skipAlts: ["skip", "skipp"],
     loopCmd: 'loop',
     enableQueueStat: true,
-  });
+  }); 
 
 client.on('guildMemberAdd', member => {
       const welcomer =  member.guild.channels.find('name', 'welcome');
