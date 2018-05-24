@@ -9,7 +9,6 @@ const { Client, Util } = require('discord.js');
 const UserBlocked = new Set();   
 const jimp = require('jimp'); 
 const Eris = require("eris"); 
-const Canvas = require('canvas');
 const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
 const figlet = require('figlet');
@@ -51,73 +50,6 @@ const music = new Music(client, {
     loopCmd: 'loop',
     enableQueueStat: true,
   }); 
-
-client.on('guildMemberAdd', member => {
-      const welcomer =  member.guild.channels.find('name', 'welcome');
-
-      const w = ['./w1.png',
-      './w2.png',
-      './w3.png',
-      './w4.png',
-      './w5.png',
-      './w7.png',
-      './w8.png'];
-
-              let Image = Canvas.Image,
-                  canvas = new Canvas(401, 202),
-                  ctx = canvas.getContext('2d');
-              ctx.patternQuality = 'bilinear';
-              ctx.filter = 'bilinear';
-              ctx.antialias = 'subpixel';
-              ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-              ctx.shadowOffsetY = 2;
-              ctx.shadowBlur = 2;
-              fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-                  if (err) return console.log(err)
-                  let BG = Canvas.Image;
-                  let ground = new Image;
-                  ground.src = Background;
-                  ctx.drawImage(ground, 0, 0, 401, 202);
-
-      })
-
-                      let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".gif" : member.user.displayAvatarURL;
-                      jimp.read(url, (err, ava) => {
-                          if (err) return console.log(err);
-                          ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                              if (err) return console.log(err);
-
-                              
-                              let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.drawImage(ava, 152, 27, 95, 95);
-
-                                                      //wl
-                              ctx.font = '20px Arial Bold';
-                              ctx.fontSize = '15px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-                                                         ctx.fillText(member.user.username, 200, 154);
-
-                              //NAME
-                              ctx.font = '20px Arial';
-                              ctx.fontSize = '28px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-                                    ctx.fillText(`You Are N°${member.guild.memberCount} `
-                              , 200, 190);
-
- welcomer.sendFile(canvas.toBuffer())
-
-
-
-      })
-      })
-      });
-
-
-
 
 client.on('message', message => {
 	var prefix ="-";
@@ -1825,38 +1757,6 @@ client.on('message', message => {
         })
         })
     }
-});
-
-client.on('message', message => {
-    var prefix = "-"
-    let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-
-if(command == "draw") {
-   Image = new Canvas.Image
-  , canvas = new Canvas(450, 170)
-  , ctx = canvas.getContext('2d');
-  ctx.font = '30px Impact';
-  let args = message.content.split(" ").slice(1);
-  
-Image.src = canvas.toBuffer();
-
-    console.log(Image);
-ctx.drawImage(Image, 0, 0, Image.width / 470, Image.height / 170);
-ctx.fillText(args.join("  "),110, 70);
-
-
-ctx.beginPath();
-ctx.lineTo(50, 102);
-ctx.stroke();
-
-message.channel.sendFile(canvas.toBuffer());
-}
-}).on('ready', () => {
-
 });
     
 client.on('message', message => {
