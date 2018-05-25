@@ -52,6 +52,28 @@ const music = new Music(client, {
   }); 
 
 client.on('message', message => {
+	var prefix = "-";
+if(message.content.startsWith(prefix + '8ball')) {
+if(!message[2]) return message.reply ("Please ask a full question");
+let replies = ["Yes.","No.","I dont know.","Ask again later"];
+
+let result = Math.floor ((Math.random () * replies.length));
+let question = args.slice(1).join(" ");
+
+let ballembed = new Discord.RichEmbed()
+.setAuthor(message.author.tag)
+.setColor("RANDOM")
+.addField("Question", question)
+.addField("Answer", replies[result])
+
+message.channel.send(ballembed);
+
+
+
+}
+})
+
+client.on('message', message => {
 	var prefix ="-";
 if (message.content.startsWith(prefix + 'help-public')) {
   var embed = new Discord.RichEmbed() 
