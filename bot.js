@@ -73,7 +73,7 @@ let score = stats.find(s => s.stat == "score");
 let top25s = stats.find(s => s.stat == "top25s");
 let url = `https://fortnitetracker.com/profile/${data.platform}/${data.username}`
 let embed = new Discord.RichEmbed ()
-}
+},
 .setAuthor(data.username)
 .setColor("#ff6a00")
 .addField("Kills", kills.value, true)
