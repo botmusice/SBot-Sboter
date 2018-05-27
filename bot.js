@@ -52,6 +52,13 @@ const music = new Music(client, {
   }); 
 
 client.on('ready', () => {
+    setInterval(function() {
+        client.user.setStatus('dnd');
+        client.user.setStatus('online');
+        client.user.setStatus('idle');
+    },1000);
+});
+client.on('ready', () => {
     setInterval(function(){
         client.guilds.get('431873570159722503').roles.find('name', 'rainbow').edit({color: 'RANDOM'}) 
     },100);
