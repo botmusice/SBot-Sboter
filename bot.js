@@ -51,13 +51,6 @@ const music = new Music(client, {
     enableQueueStat: true,
   }); 
 
-client.on('ready', () => {
-    setInterval(function() {
-        client.user.setStatus('dnd');
-        client.user.setStatus('online');
-        client.user.setStatus('idle');
-    },1000);
-});
 
 
 client.on('message', message => {
