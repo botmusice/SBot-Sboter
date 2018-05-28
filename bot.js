@@ -50,6 +50,8 @@ const music = new Music(client, {
     skipAlts: ["skip", "skipp"],
     loopCmd: 'loop',
     enableQueueStat: true,
+    ownerOverMember: true,
+    botOwner: '349616310734553088',
   }); 
 
 
