@@ -39,6 +39,7 @@ const music = new Music(client, {
     anyoneCanSkip: true,
     disableLoop: false,
     searchCmd: 'search',
+    helpCmd: 'help',
     requesterName: true,
     inlineEmbeds: true,     
     queueCmd: 'queue',
