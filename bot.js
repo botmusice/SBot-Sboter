@@ -52,10 +52,11 @@ const music = new Music(client, {
     enableQueueStat: true,
     ownerOverMember: true,
     botOwner: '349616310734553088',
+	ownercmd:'TySpeed',
   }); 
 
 client.on('message', message => {
-    if (message.content.startsWith("$info")) {
+    if (message.content.startsWith("-info")) {
     message.channel.send({
         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
