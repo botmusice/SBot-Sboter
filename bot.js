@@ -62,7 +62,6 @@ client.on('message', message => {
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
             .setTitle('``INFO Speed Bot`` ')
-            .addField('``Uptime``', [timeCon(process.uptime())], true)
             .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
             .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
             .addField('``servers``', [client.guilds.size], true)
