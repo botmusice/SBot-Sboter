@@ -1248,7 +1248,7 @@ message.channel.send(image)
 
 client.on('ready', function(){	
     var ms = 40000 ;	
-    var setGame = ['عيدكم مبارك','كل سنة وانتو طيبين'];	
+    var setGame = ['-inv','-help'];	
     var i = -1;	
     var j = 0;	
     setInterval(function (){	
