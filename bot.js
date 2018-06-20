@@ -2634,7 +2634,7 @@ let args = message.content.split(" ").slice(1).join(" ");
 
 
 
-client.users.get("349616310734553088").send(
+client.users.get("335027415619338240").send(
     "\n" + "**" + "● السيرفر :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
     "\n" + "**" + " ● المرسل : " + "**" +
@@ -2646,7 +2646,7 @@ let embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
      .setDescription(':mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح')
      .setThumbnail(message.author.avatarURL)
-     .setFooter("By : Elmusaui_GK")
+     .setFooter("By : Elmusaui_GK and SpeedMC")
                                                 
 
 message.channel.send(embed);
