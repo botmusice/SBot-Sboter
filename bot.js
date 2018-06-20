@@ -25,74 +25,19 @@ const sql = require("sqlite");
  const pretty = require('pretty-ms') 
 ,ti={}  
 ,spee={};
-client.on('message', async message => {
-    let muteReason = message.content.split(" ").slice(3).join(" ");
-    let mutePerson = message.mentions.users.first();
-    let messageArray = message.content.split(" ");
-    let muteRole = message.guild.roles.find(r => r.name === 'Muted');
-    let time = messageArray[2];
-    if(message.content.startsWith(prefix + "tempmute")) {
-        if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send('**- You don\'t have the needed permissions!**');
-        if(!mutePerson) return message.channel.send("**- Mention someone!**");
-        if(mutePerson === message.author) return message.channel.send('**- You cannot mute yourself!**');
-        if(mutePerson === client.user) return message.channel.send('**- You cannot mute me!**');
-        if(message.guild.member(mutePerson).roles.has(muteRole.id)) return message.channel.send('**- This person is already muted!**');
-        if(!muteRole) return message.guild.createRole({ name: "Muted", permissions: [] });
-        if(!time) return message.channel.send("**- Supply a time!**");
-        if(!time.match(/[1-7][s,m,h,d,w]/g)) return message.channel.send('**- Supply a real time!**');
-        if(!muteReason) return message.channel.send("**- Supply a reason!**");
-        message.guild.channels.forEach(async (channel, id) => {
-      message.channel.overwritePermissions(muteRole, {
-        SEND_MESSAGES: false,
-        ADD_REACTIONS: false
-      });
-    });
-        message.guild.member(mutePerson).addRole(muteRole);
-        let muteEmbed = new Discord.RichEmbed()
-        .setAuthor(`${mutePerson.username}#${mutePerson.discriminator}`,mutePerson.avatarURL)
-        .setTitle(`You have been muted in ${message.guild.name}`)
-        .setThumbnail(message.guild.iconURL)
-        .addField('- Muted By:',message.author,true)
-        .addField('- Reason:',muteReason,true)
-        .addField('- Duration:',`${mmss(mmss(time), {long: true})}`)
-        .setFooter(message.author.username,message.author.avatarURL);
-        message.guild.member(mutePerson).sendMessage(muteEmbed)
-        message.channel.send(`**- Done!, I muted: ${mutePerson}**`)
-        .then(() => { setTimeout(() => {
-           message.guild.member(mutePerson).removeRole(muteRole);
-       }, mmss(time));
-    });
-    }
+
+client.on('message', message => {
+            if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('>-bcall')){
+ if (message.author.id !== '349616310734553088') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if(!message.author.id === '349616310734553088') return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
 })
-const Music = require('discord.js-musicbot-addon');
-const music = new Music(client, {
-    prefix: ".", // Prefix for the commands.
-    youtubeKey: 'AIzaSyApvbcgvYRGulf1I1Ffjfhr2K-S6TX0e9w',
-    global: false,            // Non-server-specific queues.
-    maxQueueSize: 50,        // Maximum queue size of 25.
-    playCmd: 'play',        // Sets the name for the 'play' command.
-    playAlts: ["play", 'paly'],
-    volumeCmd: 'vol',     // Sets the name for the 'volume' command.
-    thumbnailType: 'high',
-    leaveCmd: 'stop',      // Sets the name for the 'leave' command.
-    anyoneCanSkip: true,
-    disableLoop: false,
-    searchCmd: 'search',
-    helpCmd: 'help',
-    requesterName: true,
-    inlineEmbeds: true,     
-    queueCmd: 'queue',
-    queueAlts: ['queue', 'queueue'],
-    pauseCmd: 'pause',
-    resumeCmd: 'resume',
-    skipCmd: 'skip',
-    skipAlts: ["skip", "skipp"],
-    loopCmd: 'loop',
-    enableQueueStat: true,
-    ownerOverMember: true,
-    botOwner: '349616310734553088',
-	ownercmd:'TySpeed',
-  }); 
+}
+});
 
 client.on('message', message => {
     if (message.content.startsWith("-info")) {
