@@ -39,6 +39,7 @@ m.sendMessage(args)
 }
 });
  client.on('message', message => {
+	 var prefix ="-";
  if(message.content.startsWith(prefix +"server")){
 if(!message.channel.guild) return message.reply(' ');
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
