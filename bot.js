@@ -558,38 +558,6 @@ message.react("❌")
       message.channel.send(IzRo);
     });
 
-bot.connect(process.env.BOT_TOKEN)
-bot.on("ready", ready => {
-	var iD = "447854318222180352";
-setInterval(function(){
- 
-            var currentTime = new Date(),
-            hours = currentTime.getHours() + 2 ,
-            minutes = currentTime.getMinutes(),
-            years = currentTime.getFullYear(),
-            month = currentTime.getMonth() + 1,
-            day = currentTime.getDate(),
-            week = currentTime.getDay();
-           
-             
- 
-            if (minutes < 10) {
-                minutes = "0" + minutes;
-            }
-            var suffix = "AM";
-            if (hours >= 12) {
-                suffix = "PM";
-                hours = hours - 12;
-            }
-            if (hours == 0) {
-                hours = 12;
-            }
-bot.editChannel(iD, {name : "- Time | [" + hours + "-" + minutes + "]"});
-}, 3000);
- 
-}); 
-
-
 client.on('message',message =>{
   var prefix = "-";
   if(message.content.startsWith(prefix + 'top')) {
