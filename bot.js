@@ -19,44 +19,12 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
-const Canvas = require('canvas');
 const sql = require("sqlite");
  const dateFormat = require('dateformat');
  const pretty = require('pretty-ms') 
 ,ti={}  
 ,spee={};
 
-client.on('message', message => {
-    var prefix = "-"
-    let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-
-if(command == "draw") {
-  var Image = new Canvas.Image
-  , canvas = new Canvas(450, 170)
-  , ctx = canvas.getContext('2d');
-  ctx.font = '30px Impact';
-  let args = message.content.split(" ").slice(1);
-  
-Image.src = canvas.toBuffer();
-
-    console.log(Image);
-ctx.drawImage(Image, 0, 0, Image.width / 470, Image.height / 170);
-ctx.fillText(args.join("  "),110, 70);
-
-
-ctx.beginPath();
-ctx.lineTo(50, 102);
-ctx.stroke();
-
-message.channel.sendFile(canvas.toBuffer());
-}
-}).on('ready', () => {
-
-});
 
 const adminprefix = "-v";//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 const devs = ['349616310734553088','335027415619338240'];//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
