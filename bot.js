@@ -13,7 +13,6 @@ const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
 const figlet = require('figlet');
 const google = require('google-it');
-const bot = new Eris(process.env.BOT_TOKEN); 
 const zalgo = require('zalgolize');   
 const { PREFIX, GOOGLE_API_KEY } = require('./config');  
 const YouTube = require('simple-youtube-api');
@@ -36,7 +35,7 @@ client.on('message', message => {
 
 
 if(command == "draw") {
-  , Image = new Canvas.Image
+  var Image = new Canvas.Image
   , canvas = new Canvas(450, 170)
   , ctx = canvas.getContext('2d');
   ctx.font = '30px Impact';
