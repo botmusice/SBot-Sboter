@@ -26,7 +26,7 @@ const sql = require("sqlite");
 ,spee={};
 
 
-const adminprefix = "-v";//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
+const adminprefix = "-v";
 const devs = ['349616310734553088','335027415619338240'];//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 client.on('message', message => {//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
   var argresult = message.content.split(` `).slice(1).join(' ');//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
