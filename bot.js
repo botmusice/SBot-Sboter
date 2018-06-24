@@ -314,7 +314,7 @@ if (message.content.startsWith(prefix + 'trans')) {
 client.on('message', message => {
      if(!message.channel.guild) return;
 var prefix = "-";
-                if(message.content.startsWith(prefix + 'bots')) {
+                if(message.content.startsWith(prefix + 'allbots')) {
 
     
     if (message.author.bot) return;
