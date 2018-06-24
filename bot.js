@@ -44,7 +44,7 @@ ${prefix}help-games ⇏ اوامر الالعاب
 ${prefix}help-music ⇏ اوامر الموسيقى
 
 	  `)
-   message.author.sendEmbed(embed)
+   message.channel.sendEmbed(embed)
     
    }
    }); 
