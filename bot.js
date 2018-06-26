@@ -24,7 +24,7 @@ const sql = require("sqlite");
  const pretty = require('pretty-ms') 
 ,ti={}  
 ,spee={};
-
+ 
 client.on("message", message => {
 	var prefix = "-";
  if (message.content === "-help") {
