@@ -58,8 +58,6 @@ client.on("message", message => {
       .setColor("#000000")
       .setDescription(`
 			  اوامر عامة
-❖-credit ~ رصيدك بالبوت
-❖-daily ~ هدية يومية 
 ❖-allbots ~ لعرض جميع البوتات الي بالسيرفر
 ❖-server ~يعرض لك معلومات عن السيرفر
 ❖-bot ~ يعرض لك كل معلومات البوت
@@ -176,46 +174,6 @@ client.on("message", message => {
    }
    }); 
 
-client.on('message', async message => {
-	var prefix = "-";
-   if(message.content.startsWith(prefix + "daily")) {
-    let cooldown = 8.64e+7,
-    amount = 250
-
-    let lastDaily = await db.fetch(`lastDaily_${message.author.id}`)
-    try {
-    db.fetch(`userBalance_${message.member.id}`).then(bucks => {
-    if(bucks == null){
-        db.set(`userBalance_${message.member.id}`, 50)}
-
-    else if (lastDaily !== null && cooldown - (Date.now() - lastDaily) > 0) {
-        let timeObj = ms(cooldown - (Date.now() - lastDaily))
-
-        message.channel.send(`You sucessfully collected this, you must wait to collect next dily. Time Left: **${timeObj}**!`)
-    } else {
-        db.set(`lastDaily_${message.author.id}`, Date.now());
-        db.add(`userBalance_${message.member.id}`, amount).then(i => {
-          message.channel.send(`**:atm:  | You received your  :yen: ${amount} daily credits!**`)
-
-
-        })}
-    })} catch(err) {console.log(err)}
-}
-});
-
-client.on('message', async message => {
-	var prefix = "-";
-   if(message.content.startsWith(prefix + "credit")) {
- let args = message.content.split(' ').slice(1);
-
-var user = message.mentions.users.first() || message.author;
-        
-        var balance = await db.fetch(`userBalance ${user.id}`)
-        
-        if (balance === null) balance = 50;
-        message.channel.send(`**${user.username} your :credit_card:  balance :  \`${balance}\`**`)
-}
-});
 
 const codes = {
     ' ': '   ',
