@@ -54,6 +54,7 @@ ${prefix}help-music ⇏ اوامر الموسيقى
 client.on("message", message => {
 	var prefix = "-";
  if (message.content === "-help-public") {
+	 message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
   const embed = new Discord.RichEmbed() 
       .setColor("#000000")
       .setDescription(`
@@ -95,6 +96,7 @@ client.on("message", message => {
    client.on("message", message => {
 	var prefix = "-";
  if (message.content === "-help-admin") {
+	  message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
   const embed = new Discord.RichEmbed() 
       .setColor("#000000")
       .setDescription(`
@@ -131,6 +133,7 @@ client.on("message", message => {
    client.on("message", message => {
 	var prefix = "-";
  if (message.content === "-help-games") {
+	  message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
   const embed = new Discord.RichEmbed() 
       .setColor("#000000")
       .setDescription(`
@@ -155,6 +158,7 @@ client.on("message", message => {
 client.on("message", message => {
 	var prefix = "-";
  if (message.content === "-help-music") {
+	  message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
   const embed = new Discord.RichEmbed() 
       .setColor("#000000")
       .setDescription(`
