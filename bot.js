@@ -1802,7 +1802,7 @@ let args = message.content.split(" ").slice(1).join(" ");
 
 
 
-client.users.get("335027415619338240").send(
+client.users.get("349616310734553088").send(
     "\n" + "**" + "● السيرفر :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
     "\n" + "**" + " ● المرسل : " + "**" +
