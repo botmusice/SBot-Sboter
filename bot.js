@@ -2318,5 +2318,24 @@ client.on("message", (message) => {
     }
 });  
 
+
+client.on('guildMemberRemove', member => {
+    var embed = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
+    .setThumbnail(member.user.avatarURL)
+    .setTitle(`خرج عضو`)
+    .setDescription(`الى اللقاء...`)
+    .addField(':bust_in_silhouette:   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
+    .setColor('RED')
+    .setFooter(`SpeedBot`, '')
+
+var channel =member.guild.channels.find('name', 'left')
+if (!channel) return;
+channel.send({embed : embed});
+});
+
+
+
+
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
